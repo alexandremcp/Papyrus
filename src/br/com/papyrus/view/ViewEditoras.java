@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * Classe que cria e gerencia a tela para Editoras.
+ * Classe que cria e gerencia a tela para Editoras..
  *
  * @author Alexandre Luiz dos Santos
  */
