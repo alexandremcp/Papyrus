@@ -15,6 +15,16 @@ public class ModelEditorasVO {
     private String nome;
     private String localizacao;
 
+    public ModelEditorasVO(int id, String nome, String localizacao) {
+        this.id = id;
+        this.localizacao = localizacao;
+        this.nome = nome;
+    }
+
+    public ModelEditorasVO() {
+    }
+    
+    
     public int getId() {
         return id;
     }
@@ -39,14 +49,11 @@ public class ModelEditorasVO {
         this.localizacao = localizacao;
     }
 
-    /*
     @Override
-    public boolean equals(Object o) {
-        return ModelCidadesVO.class.equals(o);
+    public String toString() {
+        return id + " - " + nome + " - " + localizacao;
     }
-*/
+ 
 
-
-           
             
 }

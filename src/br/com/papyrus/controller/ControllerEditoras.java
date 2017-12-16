@@ -130,6 +130,7 @@ public final class ControllerEditoras {
             telaEditoras.getTxtId().setText(String.valueOf(editora.getId()));
             telaEditoras.getTxtNome().setText(editora.getNome());
             telaEditoras.getTxtLocalizacao().setText(editora.getLocalizacao());
+            //ViewEditoras.cmbCidades.setSelectedItem(editora.getLocalizacao());
             varAlterar = true;
         }
     }

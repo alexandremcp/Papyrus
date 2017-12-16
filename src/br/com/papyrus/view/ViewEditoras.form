@@ -37,32 +37,27 @@
                       <Component id="bntExcluir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnFechar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="txtLocalizacao" min="-2" pref="22" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblId" pref="48" max="32767" attributes="0"/>
-                                  <Component id="lblNome" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNome" alignment="0" min="-2" pref="348" max="-2" attributes="0"/>
-                                  <Component id="txtId" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cmbCidades" min="-2" pref="361" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblId" pref="48" max="32767" attributes="0"/>
+                              <Component id="lblNome" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPaneEditoras" min="-2" pref="866" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtNome" alignment="0" min="-2" pref="348" max="-2" attributes="0"/>
+                              <Component id="txtId" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="txtLocalizacao" min="-2" pref="369" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneEditoras" min="-2" pref="866" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,7 +74,7 @@
                   <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbCidades" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtLocalizacao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jScrollPaneEditoras" min="-2" pref="249" max="-2" attributes="0"/>
@@ -89,9 +84,8 @@
                   <Component id="bntExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bntAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnFechar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtLocalizacao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="64" max="32767" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -209,31 +203,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtLocalizacao">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Padr&#xe3;o"/>
-        </Property>
-        <Property name="enabled" type="boolean" value="false"/>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLocalizacaoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbCidades">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCidadesActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

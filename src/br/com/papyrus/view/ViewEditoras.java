@@ -29,14 +29,16 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
      */
     public ViewEditoras() {
         initComponents();
-        CarregarCidades();
-        txtLocalizacao.setVisible(false);
+        //CarregarCidades();
+        //txtLocalizacao.setVisible(false);
     }
 
+   
     /**
      * Este médoto público carrgega um ComboBox List com o nome das ciades
      * cadastradas para ser utilizado em outros locais no sistema
      */
+    /*
     public void CarregarCidades() {
         try {
             Connection conn = CriarConexao.abrirConexao();
@@ -51,6 +53,9 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
             Logger.getLogger(ViewEditoras.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    */
+   
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,7 +79,6 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
         btnFechar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtLocalizacao = new javax.swing.JTextField();
-        cmbCidades = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -134,22 +138,6 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Localização");
 
-        txtLocalizacao.setEditable(false);
-        txtLocalizacao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txtLocalizacao.setEnabled(false);
-        txtLocalizacao.setName(""); // NOI18N
-        txtLocalizacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalizacaoActionPerformed(evt);
-            }
-        });
-
-        cmbCidades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCidadesActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,26 +152,22 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
                         .addGap(20, 20, 20)
                         .addComponent(bntExcluir)
                         .addGap(18, 18, 18)
-                        .addComponent(btnFechar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblId, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbCidades, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPaneEditoras, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(56, Short.MAX_VALUE))))
+                        .addComponent(btnFechar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblId, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                                .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(33, 33, 33)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPaneEditoras, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +181,7 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
                     .addComponent(lblNome)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(cmbCidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPaneEditoras, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -205,9 +189,8 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
                     .addComponent(btnSalvar)
                     .addComponent(bntExcluir)
                     .addComponent(bntAlterar)
-                    .addComponent(btnFechar)
-                    .addComponent(txtLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                    .addComponent(btnFechar))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
@@ -237,24 +220,15 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bntExcluirActionPerformed
 
-    private void txtLocalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalizacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalizacaoActionPerformed
-
     private void tbEditorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEditorasMouseClicked
         // TESTE AQUI
     }//GEN-LAST:event_tbEditorasMouseClicked
-
-    private void cmbCidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCidadesActionPerformed
-        txtLocalizacao.setText(cmbCidades.getSelectedItem().toString());
-    }//GEN-LAST:event_cmbCidadesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntAlterar;
     private javax.swing.JButton bntExcluir;
     private javax.swing.JButton btnFechar;
     public javax.swing.JButton btnSalvar;
-    public javax.swing.JComboBox<String> cmbCidades;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPaneEditoras;
     private javax.swing.JLabel lblId;

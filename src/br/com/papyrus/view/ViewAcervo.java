@@ -29,13 +29,15 @@ import javax.swing.table.AbstractTableModel;
  * @author Alexandre Luiz dos Santos
  */
 public class ViewAcervo extends javax.swing.JInternalFrame {
+    
 
     /**
      * Creates new form ViewAutores
      */
     public ViewAcervo() {
         initComponents();
-        PopularComboEditora();
+        //PopularComboEditora();
+        carregarComboBoxEditora();
         PopularComboClassificacao();
         PopularComboTipo();
         txtIdioma.setVisible(false);
@@ -65,14 +67,19 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         }
     }
 
-    /**
-     * Método que leva os dados da Editora para o combobox
-     */
-    public void PopularComboEditora() {
-        CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapEditoras = cc.CarregarEditoras();
-        for (String s : mapEditoras.keySet()) {
-            cmbEditora.addItem(s);
+
+    public void carregarComboBoxEditora() {
+        
+        try {
+            Connection conn = CriarConexao.abrirConexao();
+            String SQL = "SELECT * FROM Editoras ORDER BY Nome";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(SQL);
+            while (rs.next()) {
+                cmbEditora.addItem(new ModelEditorasVO(rs.getInt("Id"), rs.getString("Nome"), rs.getString("Localizacao")));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ModelEditorasVO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -560,6 +567,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
+       cmbEditora.removeAllItems();
     }//GEN-LAST:event_bntAlterarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -591,12 +599,18 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTomboActionPerformed
 
     private void cmbEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEditoraActionPerformed
+       
+        txtEditoras_Id.setText(String.valueOf((cmbEditora.getItemAt(cmbEditora.getSelectedIndex()).getId())));
+        
+        //carregarComboBoxEditora();
+        /*
         CriarConexao cc = new CriarConexao();
         HashMap<String, Integer> mapEditoras = cc.CarregarEditoras();
         //txtEditoras_Id.setText(mapEditoras.get(cmbEditora.getSelectedItem().toString()).toString());
         txtEditoras_Id.setText(mapEditoras.get(cmbEditora.getSelectedItem().toString()).toString());
         // O primeiro toString() retorna o nome da Editora, o segundo o código
         // Ou seja o primeiro retorna o primeiro campo e o segundo o segundo campo no Combobox
+        */
     }//GEN-LAST:event_cmbEditoraActionPerformed
 
 
@@ -638,7 +652,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cmbClassificacao;
     private javax.swing.JComboBox<String> cmbDisponivel;
-    private javax.swing.JComboBox<String> cmbEditora;
+    public static javax.swing.JComboBox<ModelEditorasVO> cmbEditora;
     private javax.swing.JComboBox<String> cmbIdioma;
     private javax.swing.JComboBox<String> cmbTipo;
     private java.util.List<br.com.papyrus.view.Editoras> editorasList;
