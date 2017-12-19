@@ -30,10 +30,7 @@ public class ModelAutoresDAO {
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setString(1, autor.getNome());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -56,10 +53,7 @@ public class ModelAutoresDAO {
             pstm.setString(1, autor.getNome());
             pstm.setInt(2, autor.getId());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -81,10 +75,7 @@ public class ModelAutoresDAO {
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setInt(1, autor.getId());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -111,10 +102,7 @@ public class ModelAutoresDAO {
                 vo.setNome(rs.getString("Nome"));
                 listaRetorno.add(vo);
             }
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return null;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return null;
         }

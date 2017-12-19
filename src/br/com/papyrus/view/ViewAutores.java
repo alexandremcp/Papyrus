@@ -1,7 +1,5 @@
 package br.com.papyrus.view;
 
-import br.com.papyrus.model.ModelAutoresTableModel;
-import br.com.papyrus.model.ModelAutoresVO;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;

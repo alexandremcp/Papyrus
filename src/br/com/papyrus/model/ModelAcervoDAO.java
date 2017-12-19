@@ -50,10 +50,7 @@ public class ModelAcervoDAO {
             pstm.setString(20, Acervo.getObservacoes());
             pstm.setString(21, Acervo.getDisponivel());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -95,10 +92,7 @@ public class ModelAcervoDAO {
             pstm.setString(20, Acervo.getObservacoes());
             pstm.setString(21, Acervo.getDisponivel());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -120,10 +114,7 @@ public class ModelAcervoDAO {
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setInt(1, Acervo.getId());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -170,10 +161,7 @@ public class ModelAcervoDAO {
                 vo.setClassificacao_Id(rs.getInt("Classificacao_Id"));
                 listaRetorno.add(vo);
             }
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return null;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return null;
         }

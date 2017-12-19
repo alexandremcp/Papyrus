@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
-import java.awt.event.MouseEvent;
 
 /**
  * Classe que cria e gerencia o AbstractTableModel para Autores

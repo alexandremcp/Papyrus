@@ -15,16 +15,6 @@ public class ModelEditorasVO {
     private String nome;
     private String localizacao;
 
-    public ModelEditorasVO(int id, String nome, String localizacao) {
-        this.id = id;
-        this.localizacao = localizacao;
-        this.nome = nome;
-    }
-
-    public ModelEditorasVO() {
-    }
-    
-    
     public int getId() {
         return id;
     }
@@ -48,12 +38,4 @@ public class ModelEditorasVO {
     public void setLocalizacao(String localizacao) {
         this.localizacao = localizacao;
     }
-
-    @Override
-    public String toString() {
-        return id + " - " + nome + " - " + localizacao;
-    }
- 
-
-            
 }

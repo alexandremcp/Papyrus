@@ -3,9 +3,6 @@
  */
 package br.com.papyrus.model;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-
 /**
  * Classe que cria os Values Objects, varáveis e métodos de acesso, além dos
  * construtores com seus Get e Set.
@@ -25,6 +22,9 @@ public class ModelAcervoVO {
     private int Ano;
     private String Aquisicao;
     private String Local;
+    
+    //private 
+    
     private String Tombo;
     private String CDU;
     private String CDD;
@@ -36,7 +36,6 @@ public class ModelAcervoVO {
     private int Tipos_Id;
     private int Editoras_Id;
     private int Classificacao_Id;
-    private String tbAcervo;
 
     public int getId() {
         return Id;
@@ -213,13 +212,4 @@ public class ModelAcervoVO {
     public void setClassificacao_Id(int Classificacao_Id) {
         this.Classificacao_Id = Classificacao_Id;
     }
-
-    public String getTbAcervo() {
-        return tbAcervo;
-    }
-
-    public void setTbAcervo(String tbAcervo) {
-        this.tbAcervo = tbAcervo;
-    }
-
 }

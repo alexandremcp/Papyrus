@@ -1,6 +1,5 @@
 package br.com.papyrus.controller;
 
-import br.com.papyrus.model.CriarConexao;
 import br.com.papyrus.model.ModelAcervoDAO;
 import br.com.papyrus.model.ModelAcervoTableModel;
 import br.com.papyrus.model.ModelAcervoVO;
@@ -9,19 +8,18 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
-import java.util.HashMap;
 
 /**
  * Classe que cria e gerencia o AbstractTableModel para Acervo
  *
  * @author Alexandre Luiz dos Santos.
- *
- * varAlterar: Controla se é uma alteração ou uma inclusão no
- * AbstractTableModel, se True é para incluir um novo registro, se False é para
- * alterarAcervo um registro existente.
- *
- * telaAcervo: Recebe as informações da ViewAcervo.java que é a tela com os
- * dados do Acervo.
+
+ varAlterar: Controla se é uma alteração ou uma inclusão no
+ AbstractTableModel, se True é para incluir um novo registro, se False é para
+ alterarAcervo um registro existente.
+
+ telaAcervo: Recebe as informações da ViewAcervo.java que é a tela com os
+ dados do Acervo.
  */
 public final class ControllerAcervo {
 
@@ -174,7 +172,7 @@ public final class ControllerAcervo {
 
     /**
      * Método que limpa as variaveis e campos na tela do formulário
-     * ViewAcervo.java
+ ViewAcervo.java
      */
     public void limparVariaveisAcervo() {
         telaAcervo.getTxtId().setText("");
