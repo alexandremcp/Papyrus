@@ -11,7 +11,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModelAcervoTableModel extends AbstractTableModel {
 
     private List acervo;
-    private String[] colunas = new String[]{"ID", "TÍTULO", "SUBTITULO", "SERIE", "EXEMPLAR", "EDICAO", "PAGINAS", "VOLUME", "ANO", "AQUISICAO", "LOCAL", "TOMBO", "CDU", "CDD", "CUTTER", "ISBN", "IDIOMA", "OBSERVAÇÕES", "DISPONIVEL", "TIPO", "EDITORA", "CLASSIFICAÇÃO"};
+    private String[] colunas = new String[]{"ID", "TÍTULO", "SUBTITULO", "SERIE", "IDIOMA", "EXEMPLAR", "EDICAO", "PAGINAS", "VOLUME", "ANO", "AQUISICAO", "LOCAL", "EDITORA", "CLASSIFICAÇÃO","TIPO","TOMBO", "CDU", "CDD", "CUTTER", "ISBN", "OBSERVAÇÕES", "DISPONIVEL", "EDITORA", "CLASSIFICAÇÃO", "TIPO"};
 
     @Override
     public String getColumnName(int i) {    //getColumnName() -> Dá nome ao cabeçalho da tabela
@@ -85,6 +85,12 @@ public class ModelAcervoTableModel extends AbstractTableModel {
                     return acervoVO.getObservacoes();
                 case 21:
                     return acervoVO.getDisponivel();
+                case 22:
+                    return acervoVO.getNomeEditoras();
+                case 23:
+                    return acervoVO.getNomeClassificacoes();
+                case 24:
+                    return acervoVO.getNomeTipos();
             }
         }
         return null;
@@ -96,5 +102,4 @@ public class ModelAcervoTableModel extends AbstractTableModel {
         }
         return null;
     }
-
 }

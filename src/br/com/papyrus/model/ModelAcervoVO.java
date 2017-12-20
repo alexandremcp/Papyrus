@@ -15,6 +15,7 @@ public class ModelAcervoVO {
     private String Titulo;
     private String SubTitulo;
     private String Serie;
+    private String Idioma;
     private int Exemplar;
     private String Edicao;
     private int Paginas;
@@ -22,20 +23,20 @@ public class ModelAcervoVO {
     private int Ano;
     private String Aquisicao;
     private String Local;
-    
-    //private 
-    
+    private int Editoras_Id;
+    private int Classificacao_Id;
+    private int Tipos_Id;
     private String Tombo;
     private String CDU;
     private String CDD;
     private String CUTTER;
     private String ISBN;
-    private String Idioma;
     private String Observacoes;
     private String Disponivel;
-    private int Tipos_Id;
-    private int Editoras_Id;
-    private int Classificacao_Id;
+
+    private String NomeEditoras;        //Vem da tabela editoras
+    private String NomeClassificacoes;  //Vem da tabela classificacoes
+    private String NomeTipos;           //Vem da tabela tipos
 
     public int getId() {
         return Id;
@@ -212,4 +213,29 @@ public class ModelAcervoVO {
     public void setClassificacao_Id(int Classificacao_Id) {
         this.Classificacao_Id = Classificacao_Id;
     }
+
+    public String getNomeClassificacoes() {
+        return NomeClassificacoes;
+    }
+
+    public void setNomeClassificacoes(String NomeClassificacoes) {
+        this.NomeClassificacoes = NomeClassificacoes;
+    }
+
+    public String getNomeTipos() {
+        return NomeTipos;
+    }
+
+    public void setNomeTipos(String NomeTipos) {
+        this.NomeTipos = NomeTipos;
+    }
+
+    public String getNomeEditoras() {
+        return NomeEditoras;
+    }
+
+    public void setNomeEditoras(String NomeEditoras) {
+        this.NomeEditoras = NomeEditoras;
+    }
+
 }

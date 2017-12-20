@@ -13,13 +13,13 @@ import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
  * Classe que cria e gerencia o AbstractTableModel para Acervo
  *
  * @author Alexandre Luiz dos Santos.
-
- varAlterar: Controla se é uma alteração ou uma inclusão no
- AbstractTableModel, se True é para incluir um novo registro, se False é para
- alterarAcervo um registro existente.
-
- telaAcervo: Recebe as informações da ViewAcervo.java que é a tela com os
- dados do Acervo.
+ *
+ * varAlterar: Controla se é uma alteração ou uma inclusão no
+ * AbstractTableModel, se True é para incluir um novo registro, se False é para
+ * alterarAcervo um registro existente.
+ *
+ * telaAcervo: Recebe as informações da ViewAcervo.java que é a tela com os
+ * dados do Acervo.
  */
 public final class ControllerAcervo {
 
@@ -141,7 +141,7 @@ public final class ControllerAcervo {
      */
     public void alterarAcervo() {
         if (telaAcervo.getTbAcervo().getSelectedRow() >= 0) {  //Só altera se tiver uma linha selecionada
-            ModelAcervoDAO acervoDAO = new ModelAcervoDAO();
+            //ModelAcervoDAO acervoDAO = new ModelAcervoDAO();
             ModelAcervoVO acervo = tbModel.getAcervo(telaAcervo.getTbAcervo().getSelectedRow());
             telaAcervo.getTxtId().setText(String.valueOf(acervo.getId()));
             telaAcervo.getTxtTitulo().setText(acervo.getTitulo());
@@ -165,6 +165,11 @@ public final class ControllerAcervo {
             telaAcervo.getTxtTipos_Id().setText(String.valueOf(acervo.getTipos_Id()));
             telaAcervo.getTxtEditoras_Id().setText(String.valueOf(acervo.getEditoras_Id()));
             telaAcervo.getTxtClassificacao_Id().setText(String.valueOf(acervo.getClassificacao_Id()));
+
+            telaAcervo.getTxtNomeEditora().setText(acervo.getNomeEditoras());
+            telaAcervo.getTxtNomeClassificacao().setText(acervo.getNomeClassificacoes());
+            telaAcervo.getTxtNomeTipo().setText(acervo.getNomeTipos());
+
             varAlterar = true;
         }
 
@@ -172,7 +177,7 @@ public final class ControllerAcervo {
 
     /**
      * Método que limpa as variaveis e campos na tela do formulário
- ViewAcervo.java
+     * ViewAcervo.java
      */
     public void limparVariaveisAcervo() {
         telaAcervo.getTxtId().setText("");
@@ -198,5 +203,4 @@ public final class ControllerAcervo {
         telaAcervo.getTxtEditoras_Id().setText("");
         telaAcervo.getTxtClassificacao_Id().setText("");
     }
-
 }

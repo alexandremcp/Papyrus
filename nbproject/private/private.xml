@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Alexandre/Desktop/Sistema%20de%20Gerenciamento%20de%20Bibliotecas/papyrus/src/br/com/papyrus/model/ModelAcervoTableModel.java</file>
+            <file>file:/C:/Users/Alexandre/Desktop/Sistema%20de%20Gerenciamento%20de%20Bibliotecas/papyrus/src/br/com/papyrus/model/ModelAcervoVO.java</file>
             <file>file:/C:/Users/Alexandre/Desktop/Sistema%20de%20Gerenciamento%20de%20Bibliotecas/papyrus/src/br/com/papyrus/model/ModelAcervoDAO.java</file>
-            <file>file:/C:/Users/Alexandre/Desktop/Sistema%20de%20Gerenciamento%20de%20Bibliotecas/papyrus/src/br/com/papyrus/model/ModelEditorasVO.java</file>
             <file>file:/C:/Users/Alexandre/Desktop/Sistema%20de%20Gerenciamento%20de%20Bibliotecas/papyrus/src/br/com/papyrus/controller/ControllerAcervo.java</file>
             <file>file:/C:/Users/Alexandre/Desktop/Sistema%20de%20Gerenciamento%20de%20Bibliotecas/papyrus/src/br/com/papyrus/view/ViewAcervo.java</file>
         </group>

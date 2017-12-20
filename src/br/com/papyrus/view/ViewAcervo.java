@@ -73,9 +73,9 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtTipos_Id = new javax.swing.JTextField();
         txtIdioma = new javax.swing.JTextField();
         txtDisponivel = new javax.swing.JTextField();
-        txtEditora_Nome = new javax.swing.JTextField();
-        txtClassificacoes_Nome = new javax.swing.JTextField();
-        txtTipos_Nome = new javax.swing.JTextField();
+        txtNomeEditora = new javax.swing.JTextField();
+        txtNomeClassificacao = new javax.swing.JTextField();
+        txtNomeTipo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lblIdioma = new javax.swing.JLabel();
         lblEditora = new javax.swing.JLabel();
@@ -220,9 +220,9 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
             }
         });
 
-        txtEditora_Nome.addActionListener(new java.awt.event.ActionListener() {
+        txtNomeEditora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEditora_NomeActionPerformed(evt);
+                txtNomeEditoraActionPerformed(evt);
             }
         });
 
@@ -277,15 +277,15 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(txtTipos_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtTipos_Nome))
+                                                .addComponent(txtNomeTipo))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addComponent(txtClassificacao_Id, javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(txtEditoras_Id, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(txtEditora_Nome)
-                                                    .addComponent(txtClassificacoes_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                    .addComponent(txtNomeEditora)
+                                                    .addComponent(txtNomeClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(lblSerie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -424,7 +424,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEditora_Nome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomeEditora, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblEditora)
                                 .addComponent(txtEditoras_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -441,11 +441,11 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblISBN)
                             .addComponent(txtClassificacao_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtClassificacoes_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNomeClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTipos_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTipos_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNomeTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtTombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -532,9 +532,9 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdiomaActionPerformed
 
-    private void txtEditora_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditora_NomeActionPerformed
+    private void txtNomeEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeEditoraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEditora_NomeActionPerformed
+    }//GEN-LAST:event_txtNomeEditoraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -574,43 +574,41 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCDU;
     private javax.swing.JTextField txtCUTTER;
     public javax.swing.JTextField txtClassificacao_Id;
-    private javax.swing.JTextField txtClassificacoes_Nome;
     private javax.swing.JTextField txtDisponivel;
     private javax.swing.JTextField txtEdicao;
-    private javax.swing.JTextField txtEditora_Nome;
     public javax.swing.JTextField txtEditoras_Id;
     private javax.swing.JTextField txtExemplar;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdioma;
     private javax.swing.JTextField txtLocal;
+    private javax.swing.JTextField txtNomeClassificacao;
+    public static javax.swing.JTextField txtNomeEditora;
+    private javax.swing.JTextField txtNomeTipo;
     private javax.swing.JTextField txtObservacoes;
     private javax.swing.JTextField txtPaginas;
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtSubTitulo;
     public javax.swing.JTextField txtTipos_Id;
-    private javax.swing.JTextField txtTipos_Nome;
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtTombo;
     private javax.swing.JTextField txtVolume;
     // End of variables declaration//GEN-END:variables
 
-////////////////////////////////  ATENÇÃO  ////////////////////////////////
-    //GET para os campo e botões do formulário para uso do ControllerAutores
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
-public JButton getBtnSalvar() {  //Método criado na mão para ser usando por 
+    //GET para os campos e botões do formulário para uso do ControllerAutores
+    public JButton getBtnSalvar() {
         return btnSalvar;
     }
 
-    public JButton getBtnExcluir() {  //Método criado na mão para ser usando por ControllerAcervo
+    public JButton getBtnExcluir() {
         return bntExcluir;
     }
 
-    public JButton getBtnAlterar() {  //Método criado na mão para ser usando por ControllerAcervo
+    public JButton getBtnAlterar() {
         return bntAlterar;
     }
 
-    public JTextField getTxtId() { //Método criado na mão para ser usando por ControllerAcervo
+    public JTextField getTxtId() {
         return txtId;
     }
 
@@ -702,13 +700,26 @@ public JButton getBtnSalvar() {  //Método criado na mão para ser usando por
         return tbAcervo;
     }
 
+    public JTextField getTxtNomeEditora() {
+        return txtNomeEditora;
+    }
+
+    public JTextField getTxtNomeClassificacao() {
+        return txtNomeClassificacao;
+    }
+
+    public JTextField getTxtNomeTipo() {
+        return txtNomeTipo;
+
+    }
+
     /**
      * Método que linka o AbstractTableModel a tabela no formulário setTbAutores
      *
      * @param modelo vindo de ControllerAutores.carregar() com a lista do
      * TableModel
      */
-      public void setTbAcervo(AbstractTableModel modelo) {
+    public void setTbAcervo(AbstractTableModel modelo) {
         this.tbAcervo.setModel(modelo);
         this.tbAcervo.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         this.tbAcervo.setSelectionBackground(Color.cyan);  //Põe cor azul na linha atual
@@ -723,5 +734,4 @@ public JButton getBtnSalvar() {  //Método criado na mão para ser usando por
         this.tbAcervo.getColumnModel().getColumn(3).setPreferredWidth(100);
         this.tbAcervo.getColumnModel().getColumn(3).setResizable(true);
     }
-
 }

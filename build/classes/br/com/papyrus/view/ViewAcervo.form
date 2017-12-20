@@ -1,37 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.persistence.EntityManager" name="entityManager">
-      <Properties>
-        <Property name="persistenceUnit" type="java.lang.String" value="papyrus?zeroDateTimeBehavior=convertToNullPU"/>
-      </Properties>
-    </Component>
-    <Component class="javax.persistence.Query" name="editorasQuery">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT e FROM Editoras e"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="editorasList">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="editorasQuery"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;br.com.papyrus.view.Editoras&gt;"/>
-      </AuxValues>
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="iconifiable" type="boolean" value="true"/>
     <Property name="maximizable" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="true"/>
-    <Property name="title" type="java.lang.String" value="Acervo"/>
+    <Property name="title" type="java.lang.String" value="Autores"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -51,190 +26,192 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="bntAlterar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="bntExcluir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnFechar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblEditora" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTipo" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblClassificacao" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtEditoras_Id" max="32767" attributes="0"/>
-                                  <Component id="txtClassificacao_Id" max="32767" attributes="0"/>
-                                  <Component id="txtTipos_Id" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cmbClassificacao" alignment="1" pref="433" max="32767" attributes="0"/>
-                                  <Component id="cmbEditora" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="cmbTipo" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblSerie" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtSerie" min="-2" pref="313" max="-2" attributes="0"/>
-                                  <EmptySpace pref="34" max="32767" attributes="0"/>
-                                  <Component id="lblIdioma" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cmbIdioma" min="-2" pref="125" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblSubTitulo" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtSubTitulo" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblTitulo" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtTitulo" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblId" linkSize="1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtId" min="-2" pref="49" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel2" linkSize="2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtLocal" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblVolume" linkSize="2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtVolume" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblExemplar" linkSize="2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtExemplar" min="-2" pref="108" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblTombo" linkSize="2" max="32767" attributes="0"/>
-                                          <Component id="lblCUTTER" linkSize="2" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtTombo" max="32767" attributes="0"/>
-                                          <Component id="txtCUTTER" pref="107" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblAno" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtAno" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblEdicao" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtEdicao" min="-2" pref="102" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblISBN" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtISBN" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblCDU" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtCDU" min="-2" pref="116" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblEditora" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblClassificacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtTipos_Id" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtNomeTipo" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="txtClassificacao_Id" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtEditoras_Id" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtNomeEditora" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtNomeClassificacao" alignment="0" min="-2" pref="432" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="lblSerie" max="32767" attributes="0"/>
+                                          <Component id="lblSubTitulo" pref="48" max="32767" attributes="0"/>
+                                          <Component id="lblTitulo" max="32767" attributes="0"/>
+                                          <Component id="lblId" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txtId" min="-2" pref="49" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="txtTitulo" min="-2" pref="511" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="txtSerie" min="-2" pref="313" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="lblIdioma" min="-2" pref="35" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="cmbIdioma" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="txtSubTitulo" alignment="1" min="-2" pref="509" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblCDU" max="32767" attributes="0"/>
+                                                  <Component id="lblISBN" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtTombo" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtCUTTER" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" min="-2" pref="64" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="cmbDisponivel" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="txtIdioma" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="txtDisponivel" min="-2" pref="53" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblTombo" min="-2" pref="39" max="-2" attributes="0"/>
+                                          <Component id="lblCUTTER" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                              <Component id="txtISBN" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtCDU" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                                       <Component id="lblCDD" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtCDD" min="-2" pref="103" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel1" linkSize="4" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblExemplar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblVolume" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtAquisicao" min="-2" pref="79" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblPaginas" linkSize="4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtPaginas" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtVolume" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                                                  <Component id="txtExemplar" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="lblEdicao" max="32767" attributes="0"/>
+                                                  <Component id="lblAno" min="-2" pref="31" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="txtAno" max="32767" attributes="0"/>
+                                                  <Component id="txtEdicao" min="-2" pref="102" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="lblPaginas" max="32767" attributes="0"/>
+                                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="txtAquisicao" min="-2" pref="79" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                      <Component id="txtPaginas" min="-2" pref="79" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Component id="txtLocal" alignment="0" min="-2" pref="468" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="64" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cmbDisponivel" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="txtIdioma" min="-2" pref="47" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtDisponivel" min="-2" pref="53" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <Component id="lblObservacoes" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtObservacoes" min="-2" pref="942" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="txtObservacoes" min="-2" pref="502" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPaneAcervo" min="-2" pref="1229" max="-2" attributes="0"/>
               </Group>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jScrollPaneAcervo" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="bntAlterar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="bntExcluir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnFechar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="932" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblId" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblExemplar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -273,9 +250,12 @@
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblEditora" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEditoras_Id" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtNomeEditora" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="lblEditora" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEditoras_Id" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lblClassificacao" min="-2" max="-2" attributes="0"/>
@@ -284,27 +264,36 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cmbEditora" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTombo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCDU" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCDD" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTombo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCDU" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCDD" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cmbClassificacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCUTTER" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblISBN" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCUTTER" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtISBN" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtClassificacao_Id" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNomeClassificacao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cmbTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtTipos_Id" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNomeTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="txtTombo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtCUTTER" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtCDU" max="32767" attributes="0"/>
+                          <Component id="lblTombo" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtISBN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCUTTER" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -326,14 +315,14 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPaneAcervo" min="-2" pref="158" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace pref="97" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bntExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bntAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnFechar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -366,54 +355,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntExcluirActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPaneAcervo">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="tbACervo">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
-              </Table>
-            </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
-            </Property>
-            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbACervoMouseClicked"/>
-          </Events>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JButton" name="btnFechar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fechar"/>
@@ -421,146 +362,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFecharActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblId">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTitulo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblSubTitulo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Subt&#xed;tulo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblSerie">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="S&#xe9;rie"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblExemplar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Exemplar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblEdicao">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Edi&#xe7;&#xe3;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblPaginas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="P&#xe1;ginas"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblVolume">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Volume"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAno">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ano"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Aquisi&#xe7;&#xe3;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Local"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblIdioma">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Idioma"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblEditora">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Editora"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbEditora">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEditoraActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;ModelEditorasVO&gt;"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblClassificacao">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Classifica&#xe7;&#xe3;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTipo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbClassificacao">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbClassificacaoActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbTipo">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTipoActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTombo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tombo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblCDU">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CDU"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblCDD">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CDD"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblCUTTER">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CUTTER"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblISBN">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ISBN"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblObservacoes">
       <Properties>
@@ -643,6 +444,30 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtEdicao">
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPaneAcervo">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tbAcervo">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbAcervoMouseClicked"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
     <Component class="javax.swing.JTextField" name="txtPaginas">
     </Component>
     <Component class="javax.swing.JTextField" name="txtVolume">
@@ -687,15 +512,65 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtISBN">
     </Component>
+    <Component class="javax.swing.JLabel" name="lblId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTitulo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSubTitulo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Subt&#xed;tulo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSerie">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xe9;rie"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblExemplar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exemplar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEdicao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Edi&#xe7;&#xe3;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPaginas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="P&#xe1;ginas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblVolume">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Volume"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JTextField" name="txtObservacoes">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Observa&#xe7;&#xf5;es a respeito da obra."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ano"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEditoras_Id">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aquisi&#xe7;&#xe3;o"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtClassificacao_Id">
       <AuxValues>
@@ -716,6 +591,68 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDisponivel">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNomeEditora">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeEditoraActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNomeClassificacao">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNomeTipo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Local"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIdioma">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Idioma"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEditora">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editora"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblClassificacao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Classifica&#xe7;&#xe3;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTipo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTombo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tombo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCDU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CDU"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCDD">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CDD"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCUTTER">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CUTTER"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblISBN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ISBN"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

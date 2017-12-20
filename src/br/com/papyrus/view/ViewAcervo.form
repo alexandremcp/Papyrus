@@ -55,7 +55,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="txtTipos_Id" min="-2" pref="60" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txtTipos_Nome" max="32767" attributes="0"/>
+                                              <Component id="txtNomeTipo" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -64,8 +64,8 @@
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtEditora_Nome" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtClassificacoes_Nome" alignment="0" min="-2" pref="432" max="-2" attributes="0"/>
+                                                  <Component id="txtNomeEditora" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtNomeClassificacao" alignment="0" min="-2" pref="432" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -251,7 +251,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtEditora_Nome" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNomeEditora" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="lblEditora" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtEditoras_Id" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -272,12 +272,12 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblISBN" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtClassificacao_Id" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtClassificacoes_Nome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNomeClassificacao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtTipos_Id" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTipos_Nome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNomeTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -592,14 +592,17 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtDisponivel">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEditora_Nome">
+    <Component class="javax.swing.JTextField" name="txtNomeEditora">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEditora_NomeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeEditoraActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtClassificacoes_Nome">
+    <Component class="javax.swing.JTextField" name="txtNomeClassificacao">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTipos_Nome">
+    <Component class="javax.swing.JTextField" name="txtNomeTipo">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

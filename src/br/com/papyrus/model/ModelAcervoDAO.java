@@ -14,6 +14,7 @@ import java.util.List;
  * @author Alexandre Luiz dos Santos
  */
 public class ModelAcervoDAO {
+    public static String edVO;
 
     /**
      * Método responsável pelo acesso a dados, inserindo registros em Acervo,
@@ -40,7 +41,7 @@ public class ModelAcervoDAO {
             pstm.setString(10, Acervo.getAquisicao());
             pstm.setString(11, Acervo.getLocal());
             pstm.setInt(12, Acervo.getEditoras_Id());
-            pstm.setInt(13, Acervo.getClassificacao_Id());          
+            pstm.setInt(13, Acervo.getClassificacao_Id());
             pstm.setInt(14, Acervo.getTipos_Id());
             pstm.setString(15, Acervo.getTombo());
             pstm.setString(16, Acervo.getCDU());
@@ -82,7 +83,7 @@ public class ModelAcervoDAO {
             pstm.setString(10, Acervo.getAquisicao());
             pstm.setString(11, Acervo.getLocal());
             pstm.setInt(12, Acervo.getEditoras_Id());
-            pstm.setInt(13, Acervo.getClassificacao_Id());          
+            pstm.setInt(13, Acervo.getClassificacao_Id());
             pstm.setInt(14, Acervo.getTipos_Id());
             pstm.setString(15, Acervo.getTombo());
             pstm.setString(16, Acervo.getCDU());
@@ -131,35 +132,46 @@ public class ModelAcervoDAO {
         List<ModelAcervoVO> listaRetorno = new ArrayList<ModelAcervoVO>();
         try {
             Connection conn = CriarConexao.abrirConexao();
-            String SQL = "SELECT * FROM Acervo";
+            //String SQL = "SELECT * FROM Acervo";
+            //String SQL = "SELECT a.Id, a.Titulo, a.Subtitulo, a.Serie, a.Idioma, a.Exemplar, a.Edicao, a.Paginas, a.Volume, a.Ano, a.Aquisicao, a.Local, a.Editoras_Id, a.Classificacao_Id, a.Tipos_Id, a.Tombo, a.CDU, a.CDD, a.CUTTER, a.ISBN, a.Observacoes, a.Disponivel, e.Nome AS NomeEditoras, c.Nome AS NomeClassificacoes, t.Nome AS NomeTipos FROM acervo a JOIN editoras e ON e.Id = a.Editoras_Id JOIN tipos t ON t.Id = a.Tipos_Id JOIN classificacoes c ON c.Id = a.Classificacao_Id;";
+            String SQL = "SELECT a.Id, a.Titulo, a.Subtitulo, a.Serie, a.Idioma, a.Exemplar, a.Edicao, a.Paginas, a.Volume, a.Ano,\n"
+                    + "a.Aquisicao, a.Local, a.Editoras_Id, a.Classificacao_Id, a.Tipos_Id, a.Tombo, a.CDU, a.CDD, a.CUTTER, a.ISBN, a.Observacoes,\n"
+                    + "a.Disponivel, e.Nome AS NomeEditoras, c.Nome AS NomeClassificacoes, t.Nome AS NomeTipos FROM acervo a JOIN\n"
+                    + "editoras e ON e.Id = a.Editoras_Id JOIN tipos t ON t.Id = a.Tipos_Id JOIN classificacoes c ON c.Id = a.Classificacao_Id WHERE\n"
+                    + "a.Editoras_Id = e.Id AND a.Classificacao_Id = c.Id AND a.Tipos_Id = t.Id;";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
             while (rs.next()) {
                 //Instancia um novo objeto
-                ModelAcervoVO vo = new ModelAcervoVO();
-                vo.setId(rs.getInt("Id"));
-                vo.setTitulo(rs.getString("Titulo"));
-                vo.setSubTitulo(rs.getString("SubTitulo"));
-                vo.setSerie(rs.getString("Serie"));
-                vo.setExemplar(rs.getInt("Exemplar"));
-                vo.setEdicao(rs.getString("Edicao"));
-                vo.setPaginas(rs.getInt("Paginas"));
-                vo.setVolume(rs.getInt("Volume"));
-                vo.setAno(rs.getInt("Ano"));
-                vo.setAquisicao(rs.getString("Aquisicao"));
-                vo.setLocal(rs.getString("Local"));
-                vo.setTombo(rs.getString("Tombo"));
-                vo.setCDU(rs.getString("CDU"));
-                vo.setCDD(rs.getString("CDD"));
-                vo.setCUTTER(rs.getString("CUTTER"));
-                vo.setISBN(rs.getString("ISBN"));
-                vo.setIdioma(rs.getString("Idioma"));
-                vo.setObservacoes(rs.getString("Observacoes"));
-                vo.setDisponivel(rs.getString("Disponivel"));
-                vo.setTipos_Id(rs.getInt("Tipos_Id"));
-                vo.setEditoras_Id(rs.getInt("Editoras_Id"));
-                vo.setClassificacao_Id(rs.getInt("Classificacao_Id"));
-                listaRetorno.add(vo);
+                ModelAcervoVO acervoVO = new ModelAcervoVO();
+                acervoVO.setId(rs.getInt("Id"));
+                acervoVO.setTitulo(rs.getString("Titulo"));
+                acervoVO.setSubTitulo(rs.getString("SubTitulo"));
+                acervoVO.setSerie(rs.getString("Serie"));
+                acervoVO.setIdioma(rs.getString("Idioma"));
+                acervoVO.setExemplar(rs.getInt("Exemplar"));
+                acervoVO.setEdicao(rs.getString("Edicao"));
+                acervoVO.setPaginas(rs.getInt("Paginas"));
+                acervoVO.setVolume(rs.getInt("Volume"));
+                acervoVO.setAno(rs.getInt("Ano"));
+                acervoVO.setAquisicao(rs.getString("Aquisicao"));
+                acervoVO.setLocal(rs.getString("Local"));
+                acervoVO.setEditoras_Id(rs.getInt("Editoras_Id"));
+                acervoVO.setClassificacao_Id(rs.getInt("Classificacao_Id"));
+                acervoVO.setTipos_Id(rs.getInt("Tipos_Id"));
+                acervoVO.setTombo(rs.getString("Tombo"));
+                acervoVO.setCDU(rs.getString("CDU"));
+                acervoVO.setCDD(rs.getString("CDD"));
+                acervoVO.setCUTTER(rs.getString("CUTTER"));
+                acervoVO.setISBN(rs.getString("ISBN"));
+                acervoVO.setObservacoes(rs.getString("Observacoes"));
+                acervoVO.setDisponivel(rs.getString("Disponivel"));
+                
+                acervoVO.setNomeEditoras(rs.getString("NomeEditoras"));
+                acervoVO.setNomeClassificacoes(rs.getString("NomeClassificacoes"));
+                acervoVO.setNomeTipos(rs.getString("NomeTipos"));
+                
+                listaRetorno.add(acervoVO);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
