@@ -52,6 +52,12 @@ public final class ControllerAcervo {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+        
+    //Valida os campos verificando se estão em branco, se algum estiver retorna verdadeiro
+    private boolean validaCampos() {
+        return telaAcervo.getTxtTitulo().getText().isEmpty() || telaAcervo.getTxtEditoras_Id().getText().isEmpty() || telaAcervo.getTxtClassificacao_Id().getText().isEmpty() || telaAcervo.getTxtTipos_Id().getText().isEmpty() || telaAcervo.getTxtIdioma().getText().isEmpty() || telaAcervo.getTxtDisponivel().getText().isEmpty(); 
+    }
+    
     /**
      * Método que salva os dados no AbstractTableModel para Acervo, utiliza a
      * variável varAlterar que se for True indica que é para gravar um novo
@@ -60,8 +66,10 @@ public final class ControllerAcervo {
     public void salvarAcervo() {
 
         if (!varAlterar) {
-            if (telaAcervo.getTxtTitulo().getText().equals("")) { //Objeto novo
-                JOptionPane.showMessageDialog(null, "Por favor preencha os dados !");
+            //if (telaAcervo.getTxtTitulo().getText().equals("")) { //Objeto novo
+            //JOptionPane.showMessageDialog(null, "Por favor preencha os dados !");
+            if (validaCampos()) {    //Validação dos campos para não gravar em branco
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
             } else {
                 ModelAcervoVO acervo = new ModelAcervoVO();
                 acervo.setTitulo(telaAcervo.getTxtTitulo().getText());
