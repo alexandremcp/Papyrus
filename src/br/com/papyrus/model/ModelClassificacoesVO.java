@@ -15,6 +15,17 @@ public class ModelClassificacoesVO {
     private String nome;
     String tbClassificacoes;
 
+    public ModelClassificacoesVO() {
+    }
+
+    public ModelClassificacoesVO(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+        
+    }
+    
+    
+
     public int getId() {
         return id;
     }

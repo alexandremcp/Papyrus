@@ -73,14 +73,14 @@ public class CriarConexao {
         try {
 
             Connection conn = CriarConexao.abrirConexao();
-            String SQL = "SELECT ID, NOME, LOCALIZACAO FROM editoras";
+            String SQL = "SELECT id, nome, localizacao FROM editoras ORDER BY nome";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
-            ModelEditorasComboVO cec;
+            ModelEditorasVO mevo;
 
             while (rs.next()) {
-                cec = new ModelEditorasComboVO(rs.getInt(1), rs.getString(2), rs.getString(3));
-                mapEditoras.put(cec.getNomeCombo(), cec.getIdCombo());
+                mevo = new ModelEditorasVO(rs.getInt(1), rs.getString(2), rs.getString(3));
+                mapEditoras.put(mevo.getNome(), mevo.getId());
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -101,14 +101,14 @@ public class CriarConexao {
         try {
 
             Connection conn = CriarConexao.abrirConexao();
-            String SQL = "SELECT ID, NOME FROM classificacoes filtro";
+            String SQL = "SELECT id, nome FROM classificacoes ORDER BY nome";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
-            ModelClassificacoesComboVO mcc;
+            ModelClassificacoesVO mcvo;
 
             while (rs.next()) {
-                mcc = new ModelClassificacoesComboVO(rs.getInt(1), rs.getString(2));
-                mapClassificacoes.put(mcc.getNomeCombo(), mcc.getIdCombo());
+                mcvo = new ModelClassificacoesVO(rs.getInt(1), rs.getString(2));
+                mapClassificacoes.put(mcvo.getNome(), mcvo.getId());
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -127,14 +127,14 @@ public class CriarConexao {
         try {
 
             Connection conn = CriarConexao.abrirConexao();
-            String SQL = "SELECT ID, NOME, DIAS FROM tipos";
+            String SQL = "SELECT id, nome, dias FROM tipos ORDER BY nome";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
-            ModelTiposComboVO mtc;
+            ModelTiposVO mtvo;
 
             while (rs.next()) {
-                mtc = new ModelTiposComboVO(rs.getInt(1), rs.getString(2));
-                mapTipos.put(mtc.getNomeCombo(), mtc.getIdCombo());
+                mtvo = new ModelTiposVO(rs.getInt(1), rs.getString(2), rs.getInt(3));
+                mapTipos.put(mtvo.getNome(), mtvo.getId());
             }
 
         } catch (SQLException | ClassNotFoundException ex) {

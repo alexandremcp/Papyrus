@@ -15,6 +15,17 @@ public class ModelTiposVO {
     private String nome;
     private int dias;
 
+    public ModelTiposVO() {
+    }
+
+    public ModelTiposVO(int id, String nome, int dias) {
+        this.id = id;
+        this.nome = nome;
+        this.dias = dias;
+    }
+    
+    
+
     public int getId() {
         return id;
     }

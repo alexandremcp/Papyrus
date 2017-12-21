@@ -15,6 +15,16 @@ public class ModelEditorasVO {
     private String nome;
     private String localizacao;
 
+    public ModelEditorasVO() {
+    }
+
+    public ModelEditorasVO(int id, String nome, String localizacao) {
+        this.id = id;
+        this.nome = nome;
+        this.localizacao = localizacao;
+    }
+       
+
     public int getId() {
         return id;
     }

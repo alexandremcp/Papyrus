@@ -1,8 +1,13 @@
 package br.com.papyrus.view;
 
+import br.com.papyrus.controller.ControllerAcervoComboBoxClassificacoes;
+import br.com.papyrus.controller.ControllerAcervoComboBoxEditoras;
+import br.com.papyrus.controller.ControllerAcervoComboBoxIdioma;
+import br.com.papyrus.controller.ControllerAcervoComboBoxTipos;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -14,6 +19,13 @@ import javax.swing.table.AbstractTableModel;
  * @author Alexandre Luiz dos Santos
  */
 public class ViewAcervo extends javax.swing.JInternalFrame {
+
+    //Instanciando a classe que abre a janela com o comboBox Idioma
+    //Será verificado se a janela está aberta, caso esteja não permite abrir novamente.
+    ControllerAcervoComboBoxIdioma idioma;
+    ControllerAcervoComboBoxEditoras editoras;
+    ControllerAcervoComboBoxClassificacoes classificacoes;
+    ControllerAcervoComboBoxTipos tipos;
 
     /**
      * Creates new form ViewAutores
@@ -36,39 +48,16 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         bntExcluir = new javax.swing.JButton();
         btnFechar = new javax.swing.JButton();
         lblObservacoes = new javax.swing.JLabel();
-        cmbDisponivel = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        txtTitulo = new javax.swing.JTextField();
-        txtSubTitulo = new javax.swing.JTextField();
-        txtSerie = new javax.swing.JTextField();
-        cmbIdioma = new javax.swing.JComboBox<>();
-        txtExemplar = new javax.swing.JTextField();
-        txtEdicao = new javax.swing.JTextField();
         jScrollPaneAcervo = new javax.swing.JScrollPane();
         tbAcervo = new javax.swing.JTable();
-        txtPaginas = new javax.swing.JTextField();
-        txtVolume = new javax.swing.JTextField();
-        txtAno = new javax.swing.JTextField();
-        txtAquisicao = new javax.swing.JFormattedTextField();
-        txtLocal = new javax.swing.JTextField();
         txtTombo = new javax.swing.JTextField();
         txtCDU = new javax.swing.JTextField();
         txtCDD = new javax.swing.JTextField();
         txtCUTTER = new javax.swing.JTextField();
         txtISBN = new javax.swing.JTextField();
-        lblId = new javax.swing.JLabel();
-        lblTitulo = new javax.swing.JLabel();
-        lblSubTitulo = new javax.swing.JLabel();
-        lblSerie = new javax.swing.JLabel();
-        lblExemplar = new javax.swing.JLabel();
-        lblEdicao = new javax.swing.JLabel();
-        lblPaginas = new javax.swing.JLabel();
-        lblVolume = new javax.swing.JLabel();
         txtObservacoes = new javax.swing.JTextField();
-        lblAno = new javax.swing.JLabel();
         txtEditoras_Id = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         txtClassificacao_Id = new javax.swing.JTextField();
         txtTipos_Id = new javax.swing.JTextField();
         txtIdioma = new javax.swing.JTextField();
@@ -76,8 +65,6 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtNomeEditora = new javax.swing.JTextField();
         txtNomeClassificacao = new javax.swing.JTextField();
         txtNomeTipo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        lblIdioma = new javax.swing.JLabel();
         lblEditora = new javax.swing.JLabel();
         lblClassificacao = new javax.swing.JLabel();
         lblTipo = new javax.swing.JLabel();
@@ -86,12 +73,36 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         lblCDD = new javax.swing.JLabel();
         lblCUTTER = new javax.swing.JLabel();
         lblISBN = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        lblTitulo = new javax.swing.JLabel();
+        txtTitulo = new javax.swing.JTextField();
+        txtSubTitulo = new javax.swing.JTextField();
+        lblSubTitulo = new javax.swing.JLabel();
+        lblSerie = new javax.swing.JLabel();
+        txtSerie = new javax.swing.JTextField();
+        lblIdioma = new javax.swing.JLabel();
+        txtExemplar = new javax.swing.JTextField();
+        lblExemplar = new javax.swing.JLabel();
+        lblVolume = new javax.swing.JLabel();
+        txtVolume = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtLocal = new javax.swing.JTextField();
+        txtAno = new javax.swing.JTextField();
+        lblAno = new javax.swing.JLabel();
+        txtEdicao = new javax.swing.JTextField();
+        lblEdicao = new javax.swing.JLabel();
+        lblPaginas = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtAquisicao = new javax.swing.JFormattedTextField();
+        txtPaginas = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Autores");
+        setTitle("Acervo");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bntAlterar.setText("Alterar");
         bntAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +110,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                 bntAlterarActionPerformed(evt);
             }
         });
+        getContentPane().add(bntAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
 
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +118,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
 
         bntExcluir.setText("Excluir");
         bntExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +126,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                 bntExcluirActionPerformed(evt);
             }
         });
+        getContentPane().add(bntExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
 
         btnFechar.setText("Fechar");
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,37 +134,15 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                 btnFecharActionPerformed(evt);
             }
         });
+        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, -1, -1));
 
         lblObservacoes.setText("Observações");
-
-        cmbDisponivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
-        cmbDisponivel.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), null));
-        cmbDisponivel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbDisponivelActionPerformed(evt);
-            }
-        });
+        lblObservacoes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 20));
 
         jLabel3.setText("Disponivel");
-
-        txtId.setEditable(false);
-
-        txtTitulo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), null));
-        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloActionPerformed(evt);
-            }
-        });
-
-        txtSerie.setToolTipText("Se pertence a uma serie, Exemplo: Harry potter.");
-
-        cmbIdioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alemão", "Árabe", "Bengali", "Chinês", "Coreano", "Espanhol", "Francês", "Hindi", "Inglês", "Italiano", "Japonês", "Javanês", "Marati", "Português", "Russo", "Tâmil", "Telugo", "Turco", "Urdu", "Vietnamita" }));
-        cmbIdioma.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), null));
-        cmbIdioma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbIdiomaActionPerformed(evt);
-            }
-        });
+        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 70, 20));
 
         tbAcervo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,345 +162,196 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         });
         jScrollPaneAcervo.setViewportView(tbAcervo);
 
-        txtAno.setToolTipText("Ano da edição da obra");
-
-        txtAquisicao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
-        txtAquisicao.setToolTipText("Data de aquisição da obra");
-
-        txtLocal.setToolTipText("Local onde o item está guardado.");
+        getContentPane().add(jScrollPaneAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1150, 158));
 
         txtTombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTomboActionPerformed(evt);
             }
         });
+        getContentPane().add(txtTombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 105, -1));
 
         txtCDU.setToolTipText("Classificação Decimal Universal");
+        getContentPane().add(txtCDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 190, 105, -1));
 
         txtCDD.setToolTipText("Classificação Decimal Dewey");
+        getContentPane().add(txtCDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 105, -1));
 
         txtCUTTER.setToolTipText("Indicam a autoria de uma obra literária.");
-
-        lblId.setText("Código");
-
-        lblTitulo.setText("Título");
-
-        lblSubTitulo.setText("Subtítulo");
-
-        lblSerie.setText("Série");
-
-        lblExemplar.setText("Exemplar");
-
-        lblEdicao.setText("Edição");
-
-        lblPaginas.setText("Páginas");
-
-        lblVolume.setText("Volume");
+        getContentPane().add(txtCUTTER, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 105, -1));
+        getContentPane().add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 160, 105, -1));
 
         txtObservacoes.setToolTipText("Observações a respeito da obra.");
+        getContentPane().add(txtObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 490, -1));
 
-        lblAno.setText("Ano");
+        txtEditoras_Id.setToolTipText("Campo obrigatório");
+        txtEditoras_Id.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtEditoras_IdMouseClicked(evt);
+            }
+        });
+        getContentPane().add(txtEditoras_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 60, -1));
 
-        txtEditoras_Id.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), null));
+        txtClassificacao_Id.setToolTipText("Campo obrigatório");
+        txtClassificacao_Id.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtClassificacao_IdMouseClicked(evt);
+            }
+        });
+        getContentPane().add(txtClassificacao_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 60, -1));
 
-        jLabel1.setText("Aquisição");
-
-        txtClassificacao_Id.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), null));
-
-        txtTipos_Id.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), null));
+        txtTipos_Id.setToolTipText("Campo obrigatório");
+        txtTipos_Id.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTipos_IdMouseClicked(evt);
+            }
+        });
         txtTipos_Id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipos_IdActionPerformed(evt);
             }
         });
+        getContentPane().add(txtTipos_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 60, -1));
 
+        txtIdioma.setToolTipText("Campo obrigatório");
+        txtIdioma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtIdiomaMouseClicked(evt);
+            }
+        });
         txtIdioma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdiomaActionPerformed(evt);
             }
         });
+        getContentPane().add(txtIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 130, -1));
+
+        txtDisponivel.setToolTipText("Campo obrigatório");
+        getContentPane().add(txtDisponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, 53, -1));
 
         txtNomeEditora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeEditoraActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Local");
-
-        lblIdioma.setText("Idioma");
+        getContentPane().add(txtNomeEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 420, -1));
+        getContentPane().add(txtNomeClassificacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 420, -1));
+        getContentPane().add(txtNomeTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 420, -1));
 
         lblEditora.setText("Editora");
+        lblEditora.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 70, 20));
 
         lblClassificacao.setText("Classificação");
+        lblClassificacao.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblClassificacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 20));
 
         lblTipo.setText("Tipo");
+        lblTipo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, 20));
 
         lblTombo.setText("Tombo");
+        lblTombo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblTombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 39, 20));
 
         lblCDU.setText("CDU");
+        lblCDU.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblCDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 40, 20));
 
         lblCDD.setText("CDD");
+        lblCDD.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblCDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 160, 40, 20));
 
         lblCUTTER.setText("CUTTER");
+        lblCUTTER.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblCUTTER, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 160, -1, 20));
 
         lblISBN.setText("ISBN");
+        lblISBN.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 40, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(520, 520, 520)
-                        .addComponent(lblExemplar)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(lblEdicao)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(lblPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(lblVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(lblAno, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel1)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtAquisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(lblIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(cmbIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSubTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtSubTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnSalvar)
-                        .addGap(18, 18, 18)
-                        .addComponent(bntAlterar)
-                        .addGap(20, 20, 20)
-                        .addComponent(bntExcluir)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFechar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTipo)
-                                .addGap(51, 51, 51)
-                                .addComponent(txtTipos_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(txtNomeTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(711, 711, 711)
-                                .addComponent(txtIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(txtDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEditora)
-                                .addGap(37, 37, 37)
-                                .addComponent(txtEditoras_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(txtNomeEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(lblCDU, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(txtTombo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)
-                                .addComponent(lblTombo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(txtCDU, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(lblCDD, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCDD, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblClassificacao)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(txtClassificacao_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(txtNomeClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblObservacoes)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(txtObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(cmbDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(txtCUTTER, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(lblCUTTER)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jScrollPaneAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblId)
-                            .addComponent(lblExemplar)
-                            .addComponent(lblEdicao)
-                            .addComponent(lblPaginas))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(lblTitulo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(lblAno))
-                            .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel1))
-                            .addComponent(txtAquisicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblVolume)))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSubTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSubTitulo)
-                            .addComponent(jLabel2))))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSerie)
-                            .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(lblIdioma))
-                    .addComponent(cmbIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(lblEditora))
-                    .addComponent(txtEditoras_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeEditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblCDU))
-                    .addComponent(txtTombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTombo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCDU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCDD)
-                            .addComponent(txtCDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(lblClassificacao))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(txtClassificacao_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNomeClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblISBN))
-                    .addComponent(txtCUTTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblCUTTER))
-                    .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblTipo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(txtTipos_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNomeTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(lblObservacoes))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(txtObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cmbDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPaneAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalvar)
-                    .addComponent(bntAlterar)
-                    .addComponent(bntExcluir)
-                    .addComponent(btnFechar))
-                .addGap(59, 59, 59))
-        );
+        lblId.setText("Código");
+        lblId.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 20));
+
+        txtId.setEditable(false);
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 49, -1));
+
+        lblTitulo.setText("Título");
+        lblTitulo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 51, 50, 20));
+
+        txtTitulo.setToolTipText("Campo obrigatório");
+        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTituloActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 511, -1));
+        getContentPane().add(txtSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 509, -1));
+
+        lblSubTitulo.setText("Subtítulo");
+        lblSubTitulo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 50, 20));
+
+        lblSerie.setText("Série");
+        lblSerie.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 50, 20));
+
+        txtSerie.setToolTipText("Se pertence a uma serie, Exemplo: Harry potter.");
+        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 313, -1));
+
+        lblIdioma.setText("Idioma");
+        lblIdioma.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 50, 20));
+        getContentPane().add(txtExemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 90, -1));
+
+        lblExemplar.setText("Exemplar");
+        lblExemplar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblExemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 60, 20));
+
+        lblVolume.setText("Volume");
+        lblVolume.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblVolume, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 50, 20));
+        getContentPane().add(txtVolume, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 90, -1));
+
+        jLabel2.setText("Local");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 50, 20));
+
+        txtLocal.setToolTipText("Local onde o item está guardado.");
+        getContentPane().add(txtLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 470, -1));
+
+        txtAno.setToolTipText("Ano da edição da obra");
+        getContentPane().add(txtAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, 90, -1));
+
+        lblAno.setText("Ano");
+        lblAno.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 40, 20));
+        getContentPane().add(txtEdicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 90, -1));
+
+        lblEdicao.setText("Edição");
+        lblEdicao.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblEdicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 40, 20));
+
+        lblPaginas.setText("Páginas");
+        lblPaginas.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 40, 50, 20));
+
+        jLabel1.setText("Aquisição");
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 70, 60, 20));
+
+        txtAquisicao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        txtAquisicao.setToolTipText("Data de aquisição da obra");
+        getContentPane().add(txtAquisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 70, 90, -1));
+
+        txtPaginas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPaginasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 40, 90, -1));
 
         getAccessibleContext().setAccessibleName("Acervo");
 
@@ -535,18 +378,6 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bntExcluirActionPerformed
 
-    private void cmbDisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDisponivelActionPerformed
-        txtDisponivel.setText(cmbDisponivel.getSelectedItem().toString());
-    }//GEN-LAST:event_cmbDisponivelActionPerformed
-
-    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloActionPerformed
-
-    private void cmbIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIdiomaActionPerformed
-        txtIdioma.setText(cmbIdioma.getSelectedItem().toString());
-    }//GEN-LAST:event_cmbIdiomaActionPerformed
-
     private void tbAcervoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbAcervoMouseClicked
 
     }//GEN-LAST:event_tbAcervoMouseClicked
@@ -560,12 +391,59 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTipos_IdActionPerformed
 
     private void txtIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdiomaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_txtIdiomaActionPerformed
 
     private void txtNomeEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeEditoraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeEditoraActionPerformed
+
+    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTituloActionPerformed
+
+    private void txtPaginasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaginasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPaginasActionPerformed
+
+    private void txtIdiomaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdiomaMouseClicked
+        if (idioma == null) {
+            idioma = new ControllerAcervoComboBoxIdioma();
+            idioma.setVisible(true);
+        } else {
+            idioma.setVisible(true);
+            idioma.setState(JFrame.NORMAL);
+        }
+    }//GEN-LAST:event_txtIdiomaMouseClicked
+
+    private void txtEditoras_IdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditoras_IdMouseClicked
+        if (editoras == null) {
+            editoras = new ControllerAcervoComboBoxEditoras();
+            editoras.setVisible(true);
+        } else {
+            editoras.setVisible(true);
+            editoras.setState(JFrame.NORMAL);
+        }
+    }//GEN-LAST:event_txtEditoras_IdMouseClicked
+
+    private void txtTipos_IdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTipos_IdMouseClicked
+        if (tipos == null) {
+            tipos = new ControllerAcervoComboBoxTipos();
+            tipos.setVisible(true);
+        } else {
+            tipos.setVisible(true);
+            tipos.setState(JFrame.NORMAL);
+        }    
+    }//GEN-LAST:event_txtTipos_IdMouseClicked
+
+    private void txtClassificacao_IdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtClassificacao_IdMouseClicked
+        if (classificacoes == null) {
+            classificacoes = new ControllerAcervoComboBoxClassificacoes();
+            classificacoes.setVisible(true);
+        } else {
+            classificacoes.setVisible(true);
+            classificacoes.setState(JFrame.NORMAL);
+        }
+    }//GEN-LAST:event_txtClassificacao_IdMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -573,8 +451,6 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     private javax.swing.JButton bntExcluir;
     private javax.swing.JButton btnFechar;
     public javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> cmbDisponivel;
-    private javax.swing.JComboBox<String> cmbIdioma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -604,23 +480,23 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCDD;
     private javax.swing.JTextField txtCDU;
     private javax.swing.JTextField txtCUTTER;
-    public javax.swing.JTextField txtClassificacao_Id;
+    public static javax.swing.JTextField txtClassificacao_Id;
     private javax.swing.JTextField txtDisponivel;
     private javax.swing.JTextField txtEdicao;
-    public javax.swing.JTextField txtEditoras_Id;
+    public static javax.swing.JTextField txtEditoras_Id;
     private javax.swing.JTextField txtExemplar;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtIdioma;
+    public static javax.swing.JTextField txtIdioma;
     private javax.swing.JTextField txtLocal;
-    private javax.swing.JTextField txtNomeClassificacao;
+    public static javax.swing.JTextField txtNomeClassificacao;
     public static javax.swing.JTextField txtNomeEditora;
-    private javax.swing.JTextField txtNomeTipo;
+    public static javax.swing.JTextField txtNomeTipo;
     private javax.swing.JTextField txtObservacoes;
     private javax.swing.JTextField txtPaginas;
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtSubTitulo;
-    public javax.swing.JTextField txtTipos_Id;
+    public static javax.swing.JTextField txtTipos_Id;
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtTombo;
     private javax.swing.JTextField txtVolume;
