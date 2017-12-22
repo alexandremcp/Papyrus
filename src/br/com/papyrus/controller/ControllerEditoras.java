@@ -5,9 +5,12 @@ import br.com.papyrus.model.ModelEditorasTableModel;
 import br.com.papyrus.model.ModelEditorasVO;
 import br.com.papyrus.view.ViewEditoras;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  * Classe que cria e gerencia o AbstractTableModel para Editoras
@@ -93,7 +96,7 @@ public final class ControllerEditoras {
             }
             varAlterar = false;
         }
-        limparVariaveisEditoras();
+        limparVariaveis(telaEditoras);
     }
 
     /**
@@ -135,13 +138,25 @@ public final class ControllerEditoras {
         }
     }
 
-    /**
-     * Método que limpa as variaveis e campos na tela do formulário
-     * ViewEditoras.java
+ /**
+     * Método que limpa as variaveis e campos na tela do formulário passado como
+     * parametro ViewEditoras.java
+     *
+     * @param obj O JInternalFrame (tela) com seus campos a ser limpo por esta
+     * classe.
      */
-    public void limparVariaveisEditoras() {
-        telaEditoras.getTxtId().setText("");
-        telaEditoras.getTxtNome().setText("");
-        telaEditoras.getTxtLocalizacao().setText("");
+    public void limparVariaveis(Object obj) {
+
+        JInternalFrame tela = (JInternalFrame) (Object) obj;
+
+        for (int i = 0; i < tela.getContentPane().getComponentCount(); i++) {
+            //varre todos os componentes
+            Component c = tela.getContentPane().getComponent(i);
+            if (c instanceof JTextField) {
+                //apaga os valores
+                JTextField field = (JTextField) c;
+                field.setText("");
+            }
+        }
     }
 }

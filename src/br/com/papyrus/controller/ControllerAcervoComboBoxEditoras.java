@@ -14,19 +14,19 @@ import java.util.HashMap;
  * @author Alexandre
  */
 public class ControllerAcervoComboBoxEditoras extends javax.swing.JFrame {
+    public static String s = "SELECT id, nome, localizacao FROM editoras ORDER BY nome";
 
     /**
      * Creates new form ControllerAcervoComboBoxEditoras
      */
     public ControllerAcervoComboBoxEditoras() {
-        boolean editorasJanelaAberta = true;
         initComponents();
-        CarregarEditoras();
+        CarregarComboBox();
     }
 
-    public void CarregarEditoras() {
+    public void CarregarComboBox() {
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapEditoras = cc.CarregarEditoras();
+        HashMap<String, Integer> mapEditoras = cc.CarregarComboBox(s);
         for (String s : mapEditoras.keySet()) {
             cmbAcervoEditoras.addItem(s);
         }
@@ -106,7 +106,7 @@ public class ControllerAcervoComboBoxEditoras extends javax.swing.JFrame {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapEditoras = cc.CarregarEditoras();
+        HashMap<String, Integer> mapEditoras = cc.CarregarComboBox(s);
         ViewAcervo.txtEditoras_Id.setText(mapEditoras.get(cmbAcervoEditoras.getSelectedItem().toString()).toString());
         ViewAcervo.txtNomeEditora.setText(cmbAcervoEditoras.getItemAt(cmbAcervoEditoras.getSelectedIndex()));
         this.dispose();

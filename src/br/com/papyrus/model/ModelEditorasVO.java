@@ -18,10 +18,9 @@ public class ModelEditorasVO {
     public ModelEditorasVO() {
     }
 
-    public ModelEditorasVO(int id, String nome, String localizacao) {
+    public ModelEditorasVO(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.localizacao = localizacao;
     }
        
 

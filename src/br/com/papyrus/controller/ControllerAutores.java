@@ -8,6 +8,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
+import java.awt.Component;
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
 
 /**
  * Classe que cria e gerencia o AbstractTableModel para Autores
@@ -91,7 +94,7 @@ public final class ControllerAutores {
             varAlterar = false;
         }
 
-        limparVariaveisAutores();
+        limparVariaveis(telaAutores);
     }
 
     /**
@@ -131,12 +134,25 @@ public final class ControllerAutores {
     }
 
     /**
-     * Método que limpa as variaveis e campos na tela do formulário
-     * ViewAutores.java
+     * Método que limpa as variaveis e campos na tela do formulário passado como
+     * parametro ViewAutores.java
+     *
+     * @param obj O JInternalFrame (tela) com seus campos a ser limpo por esta
+     * classe.
      */
-    public void limparVariaveisAutores() {
-        telaAutores.getTxtId().setText("");
-        telaAutores.getTxtNome().setText("");
+    public void limparVariaveis(Object obj) {
+
+        JInternalFrame tela = (JInternalFrame) (Object) obj;
+
+        for (int i = 0; i < tela.getContentPane().getComponentCount(); i++) {
+            //varre todos os componentes
+            Component c = tela.getContentPane().getComponent(i);
+            if (c instanceof JTextField) {
+                //apaga os valores
+                JTextField field = (JTextField) c;
+                field.setText("");
+            }
+        }
     }
 
 }

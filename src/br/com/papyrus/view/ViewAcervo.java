@@ -138,7 +138,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
 
         lblObservacoes.setText("Observações");
         lblObservacoes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 20));
+        getContentPane().add(lblObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 20));
 
         jLabel3.setText("Disponivel");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -240,7 +240,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
 
         lblEditora.setText("Editora");
         lblEditora.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 70, 20));
+        getContentPane().add(lblEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 80, 20));
 
         lblClassificacao.setText("Classificação");
         lblClassificacao.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -248,7 +248,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
 
         lblTipo.setText("Tipo");
         lblTipo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, 20));
+        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 80, 20));
 
         lblTombo.setText("Tombo");
         lblTombo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -271,8 +271,9 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         getContentPane().add(lblISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 40, 20));
 
         lblId.setText("Código");
+        lblId.setToolTipText("Código gerado automaticamente pelo sistema");
         lblId.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 20));
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 20, 50, 20));
 
         txtId.setEditable(false);
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 49, -1));
@@ -352,8 +353,6 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 40, 90, -1));
-
-        getAccessibleContext().setAccessibleName("Acervo");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -21,7 +21,6 @@ public class ModelClassificacoesVO {
     public ModelClassificacoesVO(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        
     }
     
     

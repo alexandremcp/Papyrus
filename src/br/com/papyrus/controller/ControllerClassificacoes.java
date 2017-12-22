@@ -8,6 +8,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
+import java.awt.Component;
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
 
 /**
  * Classe que cria e gerencia o AbstractTableModel para Classificacoes
@@ -18,8 +21,8 @@ import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
  * AbstractTableModel, se True é para incluir um novo registro, se False é para
  * alterarClassificacoes um registro existente.
  *
- * telaClassificacoes: Recebe as informações da ViewClassificacoes.java que é a tela com os
- * dados do Autor.
+ * telaClassificacoes: Recebe as informações da ViewClassificacoes.java que é a
+ * tela com os dados do Autor.
  */
 public final class ControllerClassificacoes {
 
@@ -53,9 +56,9 @@ public final class ControllerClassificacoes {
     }
 
     /**
-     * Método que salva os dados no AbstractTableModel para Classificacoes, utiliza a
-     * variável varAlterar que se for True indica que é para gravar um novo
-     * registro na tabela Classificacoes através do AbstractTableModel.
+     * Método que salva os dados no AbstractTableModel para Classificacoes,
+     * utiliza a variável varAlterar que se for True indica que é para gravar um
+     * novo registro na tabela Classificacoes através do AbstractTableModel.
      */
     public void salvarClassificacoes() {
 
@@ -90,7 +93,7 @@ public final class ControllerClassificacoes {
             }
             varAlterar = false;
         }
-        limparVariaveisClassificacoes();
+        limparVariaveis(telaClassificacoes);
     }
 
     /**
@@ -104,7 +107,8 @@ public final class ControllerClassificacoes {
     }
 
     /**
-     * Método que exclui um classificacao da tabela do AbstractTableModel para Classificacoes
+     * Método que exclui um classificacao da tabela do AbstractTableModel para
+     * Classificacoes
      */
     public void excluirClassificacoes() {
         if (telaClassificacoes.getTbClassificacoes().getSelectedRow() >= 0) {  //Só exclui se tiver uma linha selecionada
@@ -116,8 +120,8 @@ public final class ControllerClassificacoes {
     }
 
     /**
-     * Método que altera os dados de um classificacao na tabela do AbstractTableModel
-     * para Classificacoes
+     * Método que altera os dados de um classificacao na tabela do
+     * AbstractTableModel para Classificacoes
      */
     public void alterarClassificacoes() {
         if (telaClassificacoes.getTbClassificacoes().getSelectedRow() >= 0) {  //Só altera se tiver uma linha selecionada
@@ -129,14 +133,26 @@ public final class ControllerClassificacoes {
         }
     }
 
-
     /**
-     * Método que limpa as variaveis e campos na tela do formulário
-     * ViewClassificacoes.java
+     * Método que limpa as variaveis e campos na tela do formulário passado como
+     * parametro ViewClassificacoes.java
+     *
+     * @param obj O JInternalFrame (tela) com seus campos a ser limpo por esta
+     * classe.
      */
-    public void limparVariaveisClassificacoes() {
-        telaClassificacoes.getTxtId().setText("");
-        telaClassificacoes.getTxtNome().setText("");
+    public void limparVariaveis(Object obj) {
+
+        JInternalFrame tela = (JInternalFrame) (Object) obj;
+
+        for (int i = 0; i < tela.getContentPane().getComponentCount(); i++) {
+            //varre todos os componentes
+            Component c = tela.getContentPane().getComponent(i);
+            if (c instanceof JTextField) {
+                //apaga os valores
+                JTextField field = (JTextField) c;
+                field.setText("");
+            }
+        }
     }
 
 }

@@ -14,18 +14,20 @@ import java.util.HashMap;
  * @author Alexandre
  */
 public class ControllerAcervoComboBoxClassificacoes extends javax.swing.JFrame {
+    public static String s = "SELECT id, nome FROM classificacoes ORDER BY nome";
 
     /**
      * Creates new form ControllerAcervoComboBoxEditoras
      */
     public ControllerAcervoComboBoxClassificacoes() {
         initComponents();
-        CarregarClassificacoes();
+        //CarregarClassificacoes();
+        CarregarComboBox();
     }
 
-    public void CarregarClassificacoes() {
+    public void CarregarComboBox() {
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapClassificacoes = cc.CarregarClassificacoes();
+        HashMap<String, Integer> mapClassificacoes = cc.CarregarComboBox(s);
         for (String s : mapClassificacoes.keySet()) {
             cmbAcervoClassificacoes.addItem(s);
         }
@@ -107,7 +109,7 @@ public class ControllerAcervoComboBoxClassificacoes extends javax.swing.JFrame {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapClassificacoes = cc.CarregarClassificacoes();
+        HashMap<String, Integer> mapClassificacoes = cc.CarregarComboBox(s);
         ViewAcervo.txtClassificacao_Id.setText(mapClassificacoes.get(cmbAcervoClassificacoes.getSelectedItem().toString()).toString());
         ViewAcervo.txtNomeClassificacao.setText(cmbAcervoClassificacoes.getItemAt(cmbAcervoClassificacoes.getSelectedIndex()));
         this.dispose();

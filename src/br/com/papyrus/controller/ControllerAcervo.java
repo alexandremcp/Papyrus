@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
+import java.awt.Component;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+
 
 /**
  * Classe que cria e gerencia o AbstractTableModel para Acervo
@@ -52,12 +57,11 @@ public final class ControllerAcervo {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-        
     //Valida os campos verificando se estão em branco, se algum estiver retorna verdadeiro
     private boolean validaCampos() {
-        return telaAcervo.getTxtTitulo().getText().isEmpty() || telaAcervo.getTxtEditoras_Id().getText().isEmpty() || telaAcervo.getTxtClassificacao_Id().getText().isEmpty() || telaAcervo.getTxtTipos_Id().getText().isEmpty() || telaAcervo.getTxtIdioma().getText().isEmpty() || telaAcervo.getTxtDisponivel().getText().isEmpty(); 
+        return telaAcervo.getTxtTitulo().getText().isEmpty() || telaAcervo.getTxtEditoras_Id().getText().isEmpty() || telaAcervo.getTxtClassificacao_Id().getText().isEmpty() || telaAcervo.getTxtTipos_Id().getText().isEmpty() || telaAcervo.getTxtIdioma().getText().isEmpty() || telaAcervo.getTxtDisponivel().getText().isEmpty();
     }
-    
+
     /**
      * Método que salva os dados no AbstractTableModel para Acervo, utiliza a
      * variável varAlterar que se for True indica que é para gravar um novo
@@ -66,8 +70,6 @@ public final class ControllerAcervo {
     public void salvarAcervo() {
 
         if (!varAlterar) {
-            //if (telaAcervo.getTxtTitulo().getText().equals("")) { //Objeto novo
-            //JOptionPane.showMessageDialog(null, "Por favor preencha os dados !");
             if (validaCampos()) {    //Validação dos campos para não gravar em branco
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
             } else {
@@ -93,7 +95,6 @@ public final class ControllerAcervo {
                 acervo.setISBN(telaAcervo.getTxtISBN().getText());
                 acervo.setObservacoes(telaAcervo.getTxtObservacoes().getText());
                 acervo.setDisponivel(telaAcervo.getTxtDisponivel().getText());
-
                 ModelAcervoDAO acervoDAO = new ModelAcervoDAO();
 
                 if (acervoDAO.inserirAcervo(acervo)) {
@@ -108,6 +109,26 @@ public final class ControllerAcervo {
         if (varAlterar) {
             ModelAcervoVO acervo = new ModelAcervoVO();
             acervo.setTitulo(telaAcervo.getTxtTitulo().getText());
+            acervo.setSubTitulo(telaAcervo.getTxtSubTitulo().getText());
+            acervo.setSerie(telaAcervo.getTxtSerie().getText());
+            acervo.setIdioma(telaAcervo.getTxtIdioma().getText());
+            acervo.setExemplar(Integer.parseInt(telaAcervo.getTxtExemplar().getText()));
+            acervo.setEdicao(telaAcervo.getTxtEdicao().getText());
+            acervo.setPaginas(Integer.parseInt(telaAcervo.getTxtPaginas().getText()));
+            acervo.setVolume(Integer.parseInt(telaAcervo.getTxtVolume().getText()));
+            acervo.setAno(Integer.parseInt(telaAcervo.getTxtAno().getText()));
+            acervo.setAquisicao(telaAcervo.getTxtAquisicao().getText());
+            acervo.setLocal(telaAcervo.getTxtLocal().getText());
+            acervo.setEditoras_Id(Integer.parseInt(telaAcervo.getTxtEditoras_Id().getText()));
+            acervo.setClassificacao_Id(Integer.parseInt(telaAcervo.getTxtClassificacao_Id().getText()));
+            acervo.setTipos_Id(Integer.parseInt(telaAcervo.getTxtTipos_Id().getText()));
+            acervo.setTombo(telaAcervo.getTxtTombo().getText());
+            acervo.setCDU(telaAcervo.getTxtCDU().getText());
+            acervo.setCDD(telaAcervo.getTxtCDD().getText());
+            acervo.setCUTTER(telaAcervo.getTxtCUTTER().getText());
+            acervo.setISBN(telaAcervo.getTxtISBN().getText());
+            acervo.setObservacoes(telaAcervo.getTxtObservacoes().getText());
+            acervo.setDisponivel(telaAcervo.getTxtDisponivel().getText());
             ModelAcervoDAO acervoDAO = new ModelAcervoDAO();
 
             acervo.setId(Integer.valueOf(telaAcervo.getTxtId().getText()));
@@ -119,7 +140,8 @@ public final class ControllerAcervo {
             }
             varAlterar = false;
         }
-        limparVariaveisAcervo();
+
+        limparVariaveis(telaAcervo);
     }
 
     /**
@@ -183,32 +205,29 @@ public final class ControllerAcervo {
 
     }
 
+
+
     /**
-     * Método que limpa as variaveis e campos na tela do formulário
-     * ViewAcervo.java
+     * Método que limpa as variaveis e campos na tela do formulário passado como
+     * parametro ViewAcervo.java
+     *
+     * @param obj O JInternalFrame (tela) com seus campos a ser limpo por esta
+     * classe.
      */
-    public void limparVariaveisAcervo() {
-        telaAcervo.getTxtId().setText("");
-        telaAcervo.getTxtTitulo().setText("");
-        telaAcervo.getTxtSubTitulo().setText("");
-        telaAcervo.getTxtSerie().setText("");
-        telaAcervo.getTxtExemplar().setText("");
-        telaAcervo.getTxtEdicao().setText("");
-        telaAcervo.getTxtPaginas().setText("");
-        telaAcervo.getTxtVolume().setText("");
-        telaAcervo.getTxtAno().setText("");
-        telaAcervo.getTxtAquisicao().setText("");
-        telaAcervo.getTxtLocal().setText("");
-        telaAcervo.getTxtTombo().setText("");
-        telaAcervo.getTxtCDU().setText("");
-        telaAcervo.getTxtCDD().setText("");
-        telaAcervo.getTxtCUTTER().setText("");
-        telaAcervo.getTxtISBN().setText("");
-        telaAcervo.getTxtIdioma().setText("");
-        telaAcervo.getTxtObservacoes().setText("");
-        telaAcervo.getTxtDisponivel().setText("");
-        telaAcervo.getTxtTipos_Id().setText("");
-        telaAcervo.getTxtEditoras_Id().setText("");
-        telaAcervo.getTxtClassificacao_Id().setText("");
+    
+   
+    public void limparVariaveis(Object obj) {
+
+        JInternalFrame tela = (JInternalFrame) (Object) obj;
+
+        for (int i = 0; i < tela.getContentPane().getComponentCount(); i++) {
+            //varre todos os componentes
+            Component c = tela.getContentPane().getComponent(i);
+            if (c instanceof JTextField) {
+                //apaga os valores
+                JTextField field = (JTextField) c;
+                field.setText("");
+            }
+        }
     }
 }

@@ -12,12 +12,11 @@ import br.com.papyrus.view.ViewAcervo;
  * @author Alexandre
  */
 public class ControllerAcervoComboBoxIdioma extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ControllerAcervoComboBoxIdioma
      */
     public ControllerAcervoComboBoxIdioma() {
-        boolean idiomaJanelaAberta = true;
         initComponents();
     }
 

@@ -18,10 +18,9 @@ public class ModelTiposVO {
     public ModelTiposVO() {
     }
 
-    public ModelTiposVO(int id, String nome, int dias) {
+    public ModelTiposVO(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.dias = dias;
     }
     
     

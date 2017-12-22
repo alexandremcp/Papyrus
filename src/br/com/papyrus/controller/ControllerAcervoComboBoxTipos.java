@@ -14,18 +14,19 @@ import java.util.HashMap;
  * @author Alexandre
  */
 public class ControllerAcervoComboBoxTipos extends javax.swing.JFrame {
+    public static String s = "SELECT id, nome, dias FROM tipos ORDER BY nome";
 
     /**
      * Creates new form ControllerAcervoComboBoxTipos
      */
     public ControllerAcervoComboBoxTipos() {
         initComponents();
-        CarregarTipos();
+        CarregarComboBox();
     }
 
-    public void CarregarTipos() {
+    public void CarregarComboBox() {
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapTipos = cc.CarregarTipos();
+        HashMap<String, Integer> mapTipos = cc.CarregarComboBox(s);
         for (String s : mapTipos.keySet()) {
             cmbAcervoTipos.addItem(s);
         }
@@ -107,7 +108,7 @@ public class ControllerAcervoComboBoxTipos extends javax.swing.JFrame {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapTipos = cc.CarregarTipos();
+        HashMap<String, Integer> mapTipos = cc.CarregarComboBox(s);
         ViewAcervo.txtTipos_Id.setText(mapTipos.get(cmbAcervoTipos.getSelectedItem().toString()).toString());
         ViewAcervo.txtNomeTipo.setText(cmbAcervoTipos.getItemAt(cmbAcervoTipos.getSelectedIndex()));
         this.dispose();
