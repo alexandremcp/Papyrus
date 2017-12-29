@@ -1,14 +1,6 @@
 package br.com.papyrus.view;
 
-import br.com.papyrus.model.CriarConexao;
-import br.com.papyrus.model.ModelCidadesVO;
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -22,41 +14,14 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ViewEditoras extends javax.swing.JInternalFrame {
 
-    ModelCidadesVO cidades;
-
+    
     /**
      * Creates new form ViewEditoras
      */
     public ViewEditoras() {
         initComponents();
-        //CarregarCidades();
-        //txtLocalizacao.setVisible(false);
     }
-
-   
-    /**
-     * Este médoto público carrgega um ComboBox List com o nome das ciades
-     * cadastradas para ser utilizado em outros locais no sistema
-     */
-    /*
-    public void CarregarCidades() {
-        try {
-            Connection conn = CriarConexao.abrirConexao();
-            String SQL = "SELECT * FROM cidades ORDER BY Cidade";
-            Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery(SQL);
-            rs.first();
-            do {
-                cmbCidades.addItem(rs.getString(4));
-            } while (rs.next());
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ViewEditoras.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    */
-   
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -291,5 +256,4 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
         this.tbEditoras.getColumnModel().getColumn(2).setPreferredWidth(350);
         this.tbEditoras.getColumnModel().getColumn(2).setResizable(true);
     }
-
 }

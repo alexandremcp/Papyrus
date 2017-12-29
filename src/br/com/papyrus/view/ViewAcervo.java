@@ -96,12 +96,14 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtAquisicao = new javax.swing.JFormattedTextField();
         txtPaginas = new javax.swing.JTextField();
+        btnDuplicar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Acervo");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bntAlterar.setText("Alterar");
@@ -126,7 +128,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                 bntExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(bntExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
+        getContentPane().add(bntExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, -1, -1));
 
         btnFechar.setText("Fechar");
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +136,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
                 btnFecharActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, -1, -1));
+        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, -1));
 
         lblObservacoes.setText("Observações");
         lblObservacoes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -184,6 +186,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtObservacoes.setToolTipText("Observações a respeito da obra.");
         getContentPane().add(txtObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 490, -1));
 
+        txtEditoras_Id.setEditable(false);
         txtEditoras_Id.setToolTipText("Campo obrigatório");
         txtEditoras_Id.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -192,6 +195,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtEditoras_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 60, -1));
 
+        txtClassificacao_Id.setEditable(false);
         txtClassificacao_Id.setToolTipText("Campo obrigatório");
         txtClassificacao_Id.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -200,6 +204,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtClassificacao_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 60, -1));
 
+        txtTipos_Id.setEditable(false);
         txtTipos_Id.setToolTipText("Campo obrigatório");
         txtTipos_Id.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -213,6 +218,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtTipos_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 60, -1));
 
+        txtIdioma.setEditable(false);
         txtIdioma.setToolTipText("Campo obrigatório");
         txtIdioma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -229,13 +235,18 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtDisponivel.setToolTipText("Campo obrigatório");
         getContentPane().add(txtDisponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, 53, -1));
 
+        txtNomeEditora.setEditable(false);
         txtNomeEditora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeEditoraActionPerformed(evt);
             }
         });
         getContentPane().add(txtNomeEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 420, -1));
+
+        txtNomeClassificacao.setEditable(false);
         getContentPane().add(txtNomeClassificacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 420, -1));
+
+        txtNomeTipo.setEditable(false);
         getContentPane().add(txtNomeTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 420, -1));
 
         lblEditora.setText("Editora");
@@ -344,7 +355,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 70, 60, 20));
 
         txtAquisicao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
-        txtAquisicao.setToolTipText("Data de aquisição da obra");
+        txtAquisicao.setToolTipText("Data de aquisição da obra. Formato AAAA/MM/DD (Ano, Mês, Dia)");
         getContentPane().add(txtAquisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 70, 90, -1));
 
         txtPaginas.addActionListener(new java.awt.event.ActionListener() {
@@ -354,7 +365,16 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 40, 90, -1));
 
-        pack();
+        btnDuplicar.setText("Duplicar");
+        btnDuplicar.setToolTipText("Duplica o registro selecionado.");
+        btnDuplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDuplicarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDuplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, -1, -1));
+
+        setBounds(0, 0, 1232, 553);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
@@ -444,10 +464,15 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtClassificacao_IdMouseClicked
 
+    private void btnDuplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDuplicarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDuplicarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntAlterar;
     private javax.swing.JButton bntExcluir;
+    public static javax.swing.JButton btnDuplicar;
     private javax.swing.JButton btnFechar;
     public javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
@@ -502,6 +527,10 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     //GET para os campos e botões do formulário para uso do ControllerAutores
+    public JButton getBtnDuplicar(){
+        return btnDuplicar;
+    }
+    
     public JButton getBtnSalvar() {
         return btnSalvar;
     }

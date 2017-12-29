@@ -2,11 +2,10 @@ package br.com.papyrus.view;
 
 import br.com.papyrus.controller.ControllerAcervo;
 import br.com.papyrus.controller.ControllerAutores;
-import br.com.papyrus.controller.ControllerCidades;
 import br.com.papyrus.controller.ControllerClassificacoes;
 import br.com.papyrus.controller.ControllerEditoras;
 import br.com.papyrus.controller.ControllerTipos;
-import javax.swing.JDesktopPane;
+import br.com.papyrus.controller.ControllerLeitores;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
 
@@ -52,7 +51,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jmClassificacoes = new javax.swing.JMenuItem();
         jmTiposDeItens = new javax.swing.JMenuItem();
         jmLeitores = new javax.swing.JMenuItem();
-        jmCidades = new javax.swing.JMenuItem();
         jmRelatorios = new javax.swing.JMenu();
         jmOpcoes = new javax.swing.JMenu();
         jmAjuda = new javax.swing.JMenuItem();
@@ -159,15 +157,12 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jmCadastros.add(jmTiposDeItens);
 
         jmLeitores.setText("Leitores");
-        jmCadastros.add(jmLeitores);
-
-        jmCidades.setText("Cidades");
-        jmCidades.addActionListener(new java.awt.event.ActionListener() {
+        jmLeitores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmCidadesActionPerformed(evt);
+                jmLeitoresActionPerformed(evt);
             }
         });
-        jmCadastros.add(jmCidades);
+        jmCadastros.add(jmLeitores);
 
         jMenuBar2.add(jmCadastros);
 
@@ -248,10 +243,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
         ControllerEditoras mostrarEditoras = new ControllerEditoras();
     }//GEN-LAST:event_jmEditorasActionPerformed
 
-    private void jmCidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCidadesActionPerformed
-        ControllerCidades mostrarCidades = new ControllerCidades();
-    }//GEN-LAST:event_jmCidadesActionPerformed
-
     private void jmClassificacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmClassificacoesActionPerformed
         ControllerClassificacoes mostrarClassificacoes = new ControllerClassificacoes();
     }//GEN-LAST:event_jmClassificacoesActionPerformed
@@ -263,6 +254,10 @@ public class ViewPrincipal extends javax.swing.JFrame {
     private void jmAcervoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAcervoActionPerformed
         ControllerAcervo mostrarAcervo = new ControllerAcervo();
     }//GEN-LAST:event_jmAcervoActionPerformed
+
+    private void jmLeitoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmLeitoresActionPerformed
+        ControllerLeitores mostrarLeitores = new ControllerLeitores();
+    }//GEN-LAST:event_jmLeitoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,7 +306,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
     public static javax.swing.JMenuItem jmAjuda;
     public static javax.swing.JMenuItem jmAutores;
     private javax.swing.JMenu jmCadastros;
-    private javax.swing.JMenuItem jmCidades;
     public static javax.swing.JMenuItem jmClassificacoes;
     public static javax.swing.JMenuItem jmDevolucoes;
     public static javax.swing.JMenuItem jmEditoras;

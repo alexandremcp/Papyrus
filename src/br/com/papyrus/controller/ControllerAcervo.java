@@ -13,7 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
-
 /**
  * Classe que cria e gerencia o AbstractTableModel para Acervo
  *
@@ -40,6 +39,10 @@ public final class ControllerAcervo {
 
         carregarAcervo();
 
+        telaAcervo.getBtnDuplicar().addActionListener((ActionEvent ae) -> {
+            duplicarAcervo();
+        });
+
         telaAcervo.getBtnSalvar().addActionListener((ActionEvent ae) -> {
             salvarAcervo();
         });
@@ -60,6 +63,18 @@ public final class ControllerAcervo {
     //Valida os campos verificando se estão em branco, se algum estiver retorna verdadeiro
     private boolean validaCampos() {
         return telaAcervo.getTxtTitulo().getText().isEmpty() || telaAcervo.getTxtEditoras_Id().getText().isEmpty() || telaAcervo.getTxtClassificacao_Id().getText().isEmpty() || telaAcervo.getTxtTipos_Id().getText().isEmpty() || telaAcervo.getTxtIdioma().getText().isEmpty() || telaAcervo.getTxtDisponivel().getText().isEmpty();
+    }
+
+    public void duplicarAcervo() {
+        alterarAcervo();    //Chama alterar para carregar os campos da tabela
+        if (validaCampos()) {    //Validação dos campos para não gravar em branco
+            JOptionPane.showMessageDialog(null, "Primeiro selecione um item da tabela");
+        } else {
+            varAlterar = false; //Torna a variavel falsa para indicar que é para incluir os dados e não atualizar.
+            salvarAcervo();
+            JOptionPane.showMessageDialog(null, "Não esqueça de alterar as informações no registro que foi duplicado.");
+        }
+
     }
 
     /**
@@ -205,8 +220,6 @@ public final class ControllerAcervo {
 
     }
 
-
-
     /**
      * Método que limpa as variaveis e campos na tela do formulário passado como
      * parametro ViewAcervo.java
@@ -214,8 +227,6 @@ public final class ControllerAcervo {
      * @param obj O JInternalFrame (tela) com seus campos a ser limpo por esta
      * classe.
      */
-    
-   
     public void limparVariaveis(Object obj) {
 
         JInternalFrame tela = (JInternalFrame) (Object) obj;
