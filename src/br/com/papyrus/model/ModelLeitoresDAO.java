@@ -1,12 +1,19 @@
 package br.com.papyrus.model;
 
+import br.com.caelum.stella.format.CPFFormatter;
+import br.com.papyrus.controller.ControllerLeitores;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Classe que acessa os dados, fazendo um CRUD para Leitores
@@ -33,26 +40,26 @@ public class ModelLeitoresDAO {
                     + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setString(1, leitor.getNome());
-            pstm.setString(2, leitor.getNomeSocial());            
-            pstm.setString(3, leitor.getSexo());                        
-            pstm.setString(4, leitor.getNascimento());            
-            pstm.setString(5, leitor.getMatricula());                        
-            pstm.setInt(6, leitor.getTurma());            
-            pstm.setString(7, leitor.getTurno());                        
-            pstm.setString(8, leitor.getCadastro());            
-            pstm.setString(9, leitor.getPai());            
-            pstm.setString(10, leitor.getMae());            
-            pstm.setString(11, leitor.getIdentidade());                        
-            pstm.setString(12, leitor.getCPF());            
-            pstm.setString(13, leitor.getTelefone());            
-            pstm.setString(14, leitor.getEmail());            
-            pstm.setString(15, leitor.getEndereco());                        
-            pstm.setString(16, leitor.getBairro());            
-            pstm.setString(17, leitor.getCidade());            
-            pstm.setString(18, leitor.getEstado());            
-            pstm.setString(19, leitor.getReferencia());                        
-            pstm.setString(20, leitor.getObservacoes());            
-                     
+            pstm.setString(2, leitor.getNomeSocial());
+            pstm.setString(3, leitor.getSexo());
+            pstm.setString(4, leitor.getNascimento());
+            pstm.setString(5, leitor.getMatricula());
+            pstm.setInt(6, leitor.getTurma());
+            pstm.setString(7, leitor.getTurno());
+            pstm.setString(8, leitor.getCadastro());
+            pstm.setString(9, leitor.getPai());
+            pstm.setString(10, leitor.getMae());
+            pstm.setString(11, leitor.getIdentidade());
+            pstm.setString(12, leitor.getCPF());
+            pstm.setString(13, leitor.getTelefone());
+            pstm.setString(14, leitor.getEmail());
+            pstm.setString(15, leitor.getEndereco());
+            pstm.setString(16, leitor.getBairro());
+            pstm.setString(17, leitor.getCidade());
+            pstm.setString(18, leitor.getEstado());
+            pstm.setString(19, leitor.getReferencia());
+            pstm.setString(20, leitor.getObservacoes());
+
             pstm.execute();
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
@@ -76,26 +83,27 @@ public class ModelLeitoresDAO {
                     + "Turma=?, Turno=?, Cadastro=?, Pai=?, Mae=?, Identidade=?, CPF=?, Telefone=?,"
                     + "Email=?, Endereco=?, Bairro=?, Cidade=?, Estado=?, Referencia=?, Observacoes=? WHERE id = ?";
             PreparedStatement pstm = conn.prepareStatement(SQL);
+            CPFFormatter formatadorCPF = new CPFFormatter();
             pstm.setString(1, leitor.getNome());
-            pstm.setString(2, leitor.getNomeSocial());           
-            pstm.setString(3, leitor.getSexo());           
-            pstm.setString(4, leitor.getNascimento());           
-            pstm.setString(5, leitor.getMatricula());           
-            pstm.setInt(6, leitor.getTurma());           
-            pstm.setString(7, leitor.getTurno());           
-            pstm.setString(8, leitor.getCadastro());           
-            pstm.setString(9, leitor.getPai());           
-            pstm.setString(10, leitor.getMae());           
-            pstm.setString(11, leitor.getIdentidade());           
-            pstm.setString(12, leitor.getCPF());           
-            pstm.setString(13, leitor.getTelefone());           
-            pstm.setString(14, leitor.getEmail());           
-            pstm.setString(15, leitor.getEndereco());           
-            pstm.setString(16, leitor.getBairro());           
-            pstm.setString(17, leitor.getCidade());           
-            pstm.setString(18, leitor.getEstado());           
-            pstm.setString(19, leitor.getReferencia());           
-            pstm.setString(20, leitor.getObservacoes());                       
+            pstm.setString(2, leitor.getNomeSocial());
+            pstm.setString(3, leitor.getSexo());
+            pstm.setString(4, leitor.getNascimento());
+            pstm.setString(5, leitor.getMatricula());
+            pstm.setInt(6, leitor.getTurma());
+            pstm.setString(7, leitor.getTurno());
+            pstm.setString(8, leitor.getCadastro());
+            pstm.setString(9, leitor.getPai());
+            pstm.setString(10, leitor.getMae());
+            pstm.setString(11, leitor.getIdentidade());
+            pstm.setString(12, formatadorCPF.unformat(leitor.getCPF()));
+            pstm.setString(13, leitor.getTelefone());
+            pstm.setString(14, leitor.getEmail());
+            pstm.setString(15, leitor.getEndereco());
+            pstm.setString(16, leitor.getBairro());
+            pstm.setString(17, leitor.getCidade());
+            pstm.setString(18, leitor.getEstado());
+            pstm.setString(19, leitor.getReferencia());
+            pstm.setString(20, leitor.getObservacoes());
             pstm.setInt(21, leitor.getId());
             pstm.execute();
         } catch (ClassNotFoundException | SQLException ex) {
@@ -128,8 +136,8 @@ public class ModelLeitoresDAO {
     }
 
     /**
-     * Método responsável pelo acesso a dados, listando os registros de Leitores,
-     * para um ArrayList para ser carregado no AbstractTableModel
+     * Método responsável pelo acesso a dados, listando os registros de
+     * Leitores, para um ArrayList para ser carregado no AbstractTableModel
      *
      * @return listaRetorno Retorna um ArrayList com os registros de Leitores.
      */
@@ -145,20 +153,20 @@ public class ModelLeitoresDAO {
                 ModelLeitoresVO mlvo = new ModelLeitoresVO();
                 mlvo.setId(rs.getInt("Id"));
                 mlvo.setNome(rs.getString("Nome"));
-                mlvo.setNomeSocial(rs.getString("NomeSocial"));                
-                mlvo.setSexo(rs.getString("Sexo"));                                
-                mlvo.setNascimento(rs.getString("Nascimento"));                
-                mlvo.setMatricula(rs.getString("Matricula"));                
-                mlvo.setTurma(rs.getInt("Turma"));                
-                mlvo.setTurno(rs.getString("Turno"));                
-                mlvo.setCadastro(rs.getString("Cadastro"));                
+                mlvo.setNomeSocial(rs.getString("NomeSocial"));
+                mlvo.setSexo(rs.getString("Sexo"));
+                mlvo.setNascimento(rs.getString("Nascimento"));
+                mlvo.setMatricula(rs.getString("Matricula"));
+                mlvo.setTurma(rs.getInt("Turma"));
+                mlvo.setTurno(rs.getString("Turno"));
+                mlvo.setCadastro(rs.getString("Cadastro"));
                 mlvo.setPai(rs.getString("Pai"));
                 mlvo.setMae(rs.getString("Mae"));
                 mlvo.setIdentidade(rs.getString("Identidade"));
                 mlvo.setCPF(rs.getString("CPF"));
                 mlvo.setTelefone(rs.getString("Telefone"));
                 mlvo.setEmail(rs.getString("Email"));
-                mlvo.setEndereco(rs.getString("Endereco"));    
+                mlvo.setEndereco(rs.getString("Endereco"));
                 mlvo.setBairro(rs.getString("Bairro"));
                 mlvo.setCidade(rs.getString("Cidade"));
                 mlvo.setEstado(rs.getString("Estado"));

@@ -1,23 +1,21 @@
-/**
- *
- * Esta classe cria um JTextfield com restrição na quantidade de caracteres
- * que o campo pode receber
- *
- */
 package br.com.papyrus.controller;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-/**
- *
- * @author Alexandre Luiz dos Santos
- */
 public class StringLimitada extends PlainDocument {
 
     private int tamanhoMax = 10;
 
+    /**
+     *
+     * Esta classe cria um JTextfield com restrição na quantidade de caracteres
+     * que o campo pode receber.
+     *
+     * @author Retirado do site GUJ
+     * @param tamanhoMax O tamanho máximo de caracteres que o campos pode conter
+     */
     public StringLimitada(int tamanhoMax) {
         this.tamanhoMax = tamanhoMax;
     }

@@ -5,16 +5,27 @@ import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
 import br.com.papyrus.controller.StringLimitada;
 import java.awt.Color;
+import java.awt.Event;
 import java.awt.event.KeyEvent;
-import javax.activity.InvalidActivityException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * Classe que cria e gerencia a tela para Leitores.
+ * Classe que cria e gerencia a tela para Leitores. O Campo CPF tem métodos e
+ * propriedades vinvuladas a ele, é utilizado o médoto apenasNumeros que limita
+ * a digitação apenas a numeros. CPFValidator que valida o CPF. CPFFormatter que
+ * formata o CPF. E no atributo Código - Código de Pré-inicialização é chamada a
+ * classe StringLimitada que limita a digitação a 14 digitos, sendo que 11 são
+ * para os números e 3 para os separadores.
  *
  * @author Alexandre Luiz dos Santos
  */
@@ -146,7 +157,7 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
 
         lblId.setText("Código");
         lblId.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 20));
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, 20));
 
         lblNome.setText("Nome");
         lblNome.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -154,16 +165,22 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
 
         txtId.setEditable(false);
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 50, -1));
+
+        txtNome.setDocument(new StringLimitada(45));
         getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 500, -1));
 
         lnlNomeSocial.setText("Nome Social");
         lnlNomeSocial.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lnlNomeSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 80, 20));
+
+        txtNomeSocial.setDocument(new StringLimitada(45));
         getContentPane().add(txtNomeSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 460, -1));
 
         lblSexo.setText("Sexo");
         lblSexo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 40, 20));
+
+        txtSexo.setDocument(new StringLimitada(1));
         getContentPane().add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 50, -1));
 
         lblNascimento.setText("Nascimento");
@@ -179,11 +196,15 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         lblTurma.setText("Turma");
         lblTurma.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 40, 20));
+
+        txtTurma.setDocument(new StringLimitada(4));
         getContentPane().add(txtTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 50, -1));
 
         lblTurno.setText("Turno");
         lblTurno.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 60, 20));
+
+        txtTurno.setDocument(new StringLimitada(9));
         getContentPane().add(txtTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 90, -1));
 
         lblCadastro.setText("Cadastro");
@@ -194,20 +215,24 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         lblPai.setText("Pai");
         lblPai.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 40, 20));
+
+        txtPai.setDocument(new StringLimitada(45));
         getContentPane().add(txtPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 500, -1));
 
         lblMae.setText("Mãe");
         getContentPane().add(lblMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 20));
+
+        txtMae.setDocument(new StringLimitada(45));
         getContentPane().add(txtMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 500, -1));
 
         lblIdentidade.setText("Identidade");
         lblIdentidade.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblIdentidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 60, 20));
-        getContentPane().add(txtIdentidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 170, -1));
+        getContentPane().add(lblIdentidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 60, 20));
+        getContentPane().add(txtIdentidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 170, -1));
 
         lblCPF.setText("CPF");
         lblCPF.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 30, 20));
+        getContentPane().add(lblCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 40, 20));
 
         lblTelefone.setText("Telefone");
         lblTelefone.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -217,58 +242,66 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         lblEmail.setText("E-mail");
         lblEmail.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 40, 20));
+
+        txtEmail.setDocument(new StringLimitada(45));
         getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 50, 270, -1));
 
         lblEndereco.setText("Endereço");
         lblEndereco.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 50, 20));
+        getContentPane().add(lblEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 60, 20));
+
+        txtEndereco.setDocument(new StringLimitada(50));
         getContentPane().add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 480, -1));
 
         lblBairro.setText("Bairro");
         lblBairro.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 50, 20));
+
+        txtBairro.setDocument(new StringLimitada(30));
         getContentPane().add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 480, -1));
 
         lblCidade.setText("Cidade");
         lblCidade.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 50, 20));
+
+        txtCidade.setDocument(new StringLimitada(45));
         getContentPane().add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 480, -1));
 
         lblEstado.setText("Estado");
         lblEstado.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 50, 20));
+
+        txtEstado.setDocument(new StringLimitada(2));
         getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 40, -1));
 
         lblReferencia.setText("Referencia");
         lblReferencia.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblReferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 60, 20));
+
+        txtReferencia.setDocument(new StringLimitada(45));
         getContentPane().add(txtReferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, 350, -1));
 
         lblObservacoes.setText("Observações");
         lblObservacoes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 70, 50));
+        getContentPane().add(lblObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 80, 50));
 
+        txtObservacoes.setDocument(new StringLimitada(45));
         txtObservacoes.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         getContentPane().add(txtObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 450, 50));
 
         txtCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        txtCadastro.setToolTipText("Data do cadastramento. Formato AAAA/MM/DD (Ano, Mês, Dia).");
         getContentPane().add(txtCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 120, -1));
 
-        txtNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        txtNascimento.setToolTipText("Data de nascimento. Formato AAAA/MM/DD (Ano, Mês, Dia).");
         getContentPane().add(txtNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 90, -1));
 
-        txtCPF.setDocument(new StringLimitada(11));
         txtCPF.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCPFFocusLost(evt);
             }
         });
-        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCPFKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 280, 220, -1));
+        getContentPane().add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 220, -1));
 
         setBounds(0, 0, 1183, 631);
     }// </editor-fold>//GEN-END:initComponents
@@ -297,29 +330,17 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tbLeitoresMouseClicked
 
-    private void txtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyTyped
-        //apenasNumeros(evt);
-    }//GEN-LAST:event_txtCPFKeyTyped
-
     private void txtCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCPFFocusLost
         String cpf = txtCPF.getText();
         CPFValidator validador = new CPFValidator();
+        CPFFormatter formatadorCPF = new CPFFormatter();
         try {
             validador.assertValid(cpf);
+            txtCPF.setText(formatadorCPF.format(cpf));
         } catch (InvalidStateException e) {
             JOptionPane.showMessageDialog(null, "CPF " + cpf + " inválido!");
             txtCPF.setText("");
         }
-
-        CPFFormatter formatadorCPF = new CPFFormatter();
-        String cpfFormatado = formatadorCPF.format(cpf);
-        System.out.println(cpfFormatado);
-        txtCPF.setText(formatadorCPF.format(cpf));
-        System.out.println(txtCPF);
-        
-              
-        
-        
     }//GEN-LAST:event_txtCPFFocusLost
 
 
@@ -478,7 +499,8 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
     }
 
     /**
-     * Método que linka o AbstractTableModel a tabela no formulário setTbAutores
+     * Método que linka o AbstractTableModel a tabela no formulário
+     * setTbLeitores
      *
      * @param modelo vindo de ControllerAutores.carregar() com a lista do
      * TableModel

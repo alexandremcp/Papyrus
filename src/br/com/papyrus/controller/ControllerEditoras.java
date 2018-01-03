@@ -76,7 +76,7 @@ public final class ControllerEditoras {
                     JOptionPane.showMessageDialog(null, "Gravado com sucesso !");
                     carregarEditoras();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao tentar gravar !");
+                    JOptionPane.showMessageDialog(null, "Erro ao tentar gravar!\n" + "Algum campo tem valores inválidos.\n" + "Por favor corriga e tente novamente.");
                 }
             }
         }
@@ -92,7 +92,7 @@ public final class ControllerEditoras {
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso !");
                 carregarEditoras();
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao tentar gravar !");
+                JOptionPane.showMessageDialog(null, "Erro ao tentar gravar!\n" + "Algum campo tem valores inválidos.\n" + "Por favor corriga e tente novamente.");
             }
             varAlterar = false;
         }

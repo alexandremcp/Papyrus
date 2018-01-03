@@ -1,5 +1,6 @@
 package br.com.papyrus.view;
 
+import br.com.papyrus.controller.StringLimitada;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -73,6 +74,8 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
 
         lblNome.setText("Nome");
 
+        txtNome.setDocument(new StringLimitada(45));
+
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +105,8 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setText("Localização");
+
+        txtLocalizacao.setDocument(new StringLimitada(45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

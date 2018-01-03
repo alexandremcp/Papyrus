@@ -1,5 +1,6 @@
 package br.com.papyrus.view;
 
+import br.com.papyrus.controller.StringLimitada;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -72,6 +73,7 @@ public class ViewTipos extends javax.swing.JInternalFrame {
 
         lblNome.setText("Nome");
 
+        txtNome.setDocument(new StringLimitada(15));
         txtNome.setToolTipText("Descrição do tipo de mídia. Exemplo: DVD, Livro, Jornal, etc.");
 
         btnSalvar.setText("Salvar");
@@ -123,6 +125,7 @@ public class ViewTipos extends javax.swing.JInternalFrame {
 
         lblDias.setText("Dias");
 
+        txtDias.setDocument(new StringLimitada(2));
         txtDias.setToolTipText("Duração do empréstimo em dias");
         txtDias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -1,5 +1,6 @@
 package br.com.papyrus.view;
 
+import br.com.papyrus.controller.StringLimitada;
 import br.com.papyrus.model.ModelAutoresTableModel;
 import br.com.papyrus.model.ModelAutoresVO;
 import java.awt.Color;
@@ -66,6 +67,8 @@ public class ViewClassificacoes extends javax.swing.JInternalFrame {
         });
 
         lblNome.setText("Nome");
+
+        txtNome.setDocument(new StringLimitada(15));
 
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {

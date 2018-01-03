@@ -1,5 +1,6 @@
 package br.com.papyrus.controller;
 
+import br.com.caelum.stella.format.CPFFormatter;
 import br.com.papyrus.model.ModelLeitoresDAO;
 import br.com.papyrus.model.ModelLeitoresTableModel;
 import br.com.papyrus.model.ModelLeitoresVO;
@@ -9,6 +10,13 @@ import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
 import java.awt.Component;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
@@ -71,6 +79,7 @@ public final class ControllerLeitores {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
             } else {
                 ModelLeitoresVO leitor = new ModelLeitoresVO();
+                CPFFormatter formatadorCPF = new CPFFormatter();
                 leitor.setNome(telaLeitores.getTxtNome().getText());
                 leitor.setNomeSocial(telaLeitores.getTxtNomeSocial().getText());
                 leitor.setSexo(telaLeitores.getTxtSexo().getText());
@@ -82,7 +91,7 @@ public final class ControllerLeitores {
                 leitor.setPai(telaLeitores.getTxtPai().getText());
                 leitor.setMae(telaLeitores.getTxtMae().getText());
                 leitor.setIdentidade(telaLeitores.getTxtIdentidade().getText());
-                leitor.setCPF(telaLeitores.getTxtCPF().getText());
+                leitor.setCPF(formatadorCPF.unformat(telaLeitores.getTxtCPF().getText()));
                 leitor.setTelefone(telaLeitores.getTxtTelefone().getText());
                 leitor.setEmail(telaLeitores.getTxtEmail().getText());
                 leitor.setEndereco(telaLeitores.getTxtEndereco().getText());
@@ -98,7 +107,7 @@ public final class ControllerLeitores {
                     JOptionPane.showMessageDialog(null, "Gravado com sucesso !");
                     carregarLeitores();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao tentar gravar !");
+                    JOptionPane.showMessageDialog(null, "Erro ao tentar gravar!\n" + "Algum campo tem valores inválidos.\n" + "Por favor corriga e tente novamente.");
                 }
             }
         }
@@ -132,7 +141,7 @@ public final class ControllerLeitores {
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso !");
                 carregarLeitores();
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao tentar gravar !");
+                JOptionPane.showMessageDialog(null, "Erro ao tentar gravar!\n" + "Algum campo tem valores inválidos.\n" + "Por favor corriga e tente novamente.");
             }
             varAlterar = false;
         }
@@ -172,25 +181,27 @@ public final class ControllerLeitores {
             ModelLeitoresVO leitor = tbModel.getLeitores(telaLeitores.getTbLeitores().getSelectedRow());
             telaLeitores.getTxtId().setText(String.valueOf(leitor.getId()));
             telaLeitores.getTxtNome().setText(leitor.getNome());
-            telaLeitores.getTxtNomeSocial().setText(leitor.getNomeSocial());            
+            telaLeitores.getTxtNomeSocial().setText(leitor.getNomeSocial());
             telaLeitores.getTxtSexo().setText(leitor.getSexo());
-            telaLeitores.getTxtNascimento().setText(leitor.getNascimento());            
+            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+            telaLeitores.getTxtNascimento().setText(leitor.getNascimento());
             telaLeitores.getTxtMatricula().setText(leitor.getMatricula());
-            telaLeitores.getTxtTurma().setText(String.valueOf(leitor.getTurma()));            
+            telaLeitores.getTxtTurma().setText(String.valueOf(leitor.getTurma()));
             telaLeitores.getTxtTurno().setText(leitor.getTurno());
-            telaLeitores.getTxtCadastro().setText(leitor.getCadastro());            
+            telaLeitores.getTxtCadastro().setText(leitor.getCadastro());
             telaLeitores.getTxtPai().setText(leitor.getPai());
-            telaLeitores.getTxtMae().setText(leitor.getMae());            
+            telaLeitores.getTxtMae().setText(leitor.getMae());
             telaLeitores.getTxtIdentidade().setText(leitor.getIdentidade());
-            telaLeitores.getTxtCPF().setText(leitor.getCPF());            
+            telaLeitores.getTxtCPF().setText(leitor.getCPF());
             telaLeitores.getTxtTelefone().setText(leitor.getTelefone());
-            telaLeitores.getTxtEmail().setText(leitor.getEmail());            
+            telaLeitores.getTxtEmail().setText(leitor.getEmail());
             telaLeitores.getTxtEndereco().setText(leitor.getEndereco());
-            telaLeitores.getTxtBairro().setText(leitor.getBairro());            
-            telaLeitores.getTxtCidade().setText(leitor.getCidade());            
+            telaLeitores.getTxtBairro().setText(leitor.getBairro());
+            telaLeitores.getTxtCidade().setText(leitor.getCidade());
             telaLeitores.getTxtEstado().setText(leitor.getEstado());
-            telaLeitores.getTxtReferencia().setText(leitor.getReferencia());            
-            telaLeitores.getTxtObservacoes().setText(leitor.getObservacoes());            
+            telaLeitores.getTxtReferencia().setText(leitor.getReferencia());
+            telaLeitores.getTxtObservacoes().setText(leitor.getObservacoes());
             varAlterar = true;
         }
     }

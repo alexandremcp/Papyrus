@@ -123,6 +123,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Descri&#xe7;&#xe3;o do tipo de m&#xed;dia. Exemplo: DVD, Livro, Jornal, etc."/>
       </Properties>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtNome.setDocument(new StringLimitada(15));"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
@@ -213,6 +214,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDiasActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtDias.setDocument(new StringLimitada(2));"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

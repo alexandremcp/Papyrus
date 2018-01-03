@@ -127,6 +127,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNome">
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtNome.setDocument(new StringLimitada(45));"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
@@ -203,6 +204,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtLocalizacao">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtLocalizacao.setDocument(new StringLimitada(45));"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

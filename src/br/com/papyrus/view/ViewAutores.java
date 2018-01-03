@@ -1,5 +1,6 @@
 package br.com.papyrus.view;
 
+import br.com.papyrus.controller.StringLimitada;
 import br.com.papyrus.model.CriarConexao;
 import br.com.papyrus.model.ModelAutoresDAO;
 import br.com.papyrus.model.ModelAutoresVO;
@@ -71,6 +72,7 @@ public class ViewAutores extends javax.swing.JInternalFrame {
 
         lblNome.setText("Nome");
 
+        txtNome.setDocument(new StringLimitada(45));
         txtNome.setToolTipText("Nome do autor da obra");
 
         btnSalvar.setText("Salvar");

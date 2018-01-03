@@ -4,6 +4,7 @@ import br.com.papyrus.controller.ControllerAcervoComboBoxClassificacoes;
 import br.com.papyrus.controller.ControllerAcervoComboBoxEditoras;
 import br.com.papyrus.controller.ControllerAcervoComboBoxIdioma;
 import br.com.papyrus.controller.ControllerAcervoComboBoxTipos;
+import br.com.papyrus.controller.StringLimitada;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -54,8 +55,8 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtTombo = new javax.swing.JTextField();
         txtCDU = new javax.swing.JTextField();
         txtCDD = new javax.swing.JTextField();
-        txtCUTTER = new javax.swing.JTextField();
         txtISBN = new javax.swing.JTextField();
+        txtCUTTER = new javax.swing.JTextField();
         txtObservacoes = new javax.swing.JTextField();
         txtEditoras_Id = new javax.swing.JTextField();
         txtClassificacao_Id = new javax.swing.JTextField();
@@ -166,6 +167,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPaneAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1150, 158));
 
+        txtTombo.setDocument(new StringLimitada(20));
         txtTombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTomboActionPerformed(evt);
@@ -176,13 +178,18 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtCDU.setToolTipText("Classificação Decimal Universal");
         getContentPane().add(txtCDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 190, 105, -1));
 
+        txtCDD.setDocument(new StringLimitada(20));
         txtCDD.setToolTipText("Classificação Decimal Dewey");
         getContentPane().add(txtCDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 105, -1));
 
-        txtCUTTER.setToolTipText("Indicam a autoria de uma obra literária.");
-        getContentPane().add(txtCUTTER, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 105, -1));
-        getContentPane().add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 160, 105, -1));
+        txtISBN.setDocument(new StringLimitada(15));
+        txtISBN.setToolTipText("Indicam a autoria de uma obra literária.");
+        getContentPane().add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 105, -1));
 
+        txtCUTTER.setDocument(new StringLimitada(10));
+        getContentPane().add(txtCUTTER, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 160, 105, -1));
+
+        txtObservacoes.setDocument(new StringLimitada(100));
         txtObservacoes.setToolTipText("Observações a respeito da obra.");
         getContentPane().add(txtObservacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 490, -1));
 
@@ -232,6 +239,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 130, -1));
 
+        txtDisponivel.setDocument(new StringLimitada(3));
         txtDisponivel.setToolTipText("Campo obrigatório");
         getContentPane().add(txtDisponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, 53, -1));
 
@@ -293,6 +301,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         lblTitulo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 51, 50, 20));
 
+        txtTitulo.setDocument(new StringLimitada(45));
         txtTitulo.setToolTipText("Campo obrigatório");
         txtTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +309,8 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 511, -1));
+
+        txtSubTitulo.setDocument(new StringLimitada(45));
         getContentPane().add(txtSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 509, -1));
 
         lblSubTitulo.setText("Subtítulo");
@@ -310,12 +321,15 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         lblSerie.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 50, 20));
 
+        txtSerie.setDocument(new StringLimitada(45));
         txtSerie.setToolTipText("Se pertence a uma serie, Exemplo: Harry potter.");
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 313, -1));
 
         lblIdioma.setText("Idioma");
         lblIdioma.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 50, 20));
+
+        txtExemplar.setDocument(new StringLimitada(2));
         getContentPane().add(txtExemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 90, -1));
 
         lblExemplar.setText("Exemplar");
@@ -325,21 +339,27 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         lblVolume.setText("Volume");
         lblVolume.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblVolume, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 50, 20));
+
+        txtVolume.setDocument(new StringLimitada(2));
         getContentPane().add(txtVolume, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 90, -1));
 
         jLabel2.setText("Local");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 50, 20));
 
+        txtLocal.setDocument(new StringLimitada(45));
         txtLocal.setToolTipText("Local onde o item está guardado.");
         getContentPane().add(txtLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 470, -1));
 
+        txtAno.setDocument(new StringLimitada(4));
         txtAno.setToolTipText("Ano da edição da obra");
         getContentPane().add(txtAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, 90, -1));
 
         lblAno.setText("Ano");
         lblAno.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 40, 20));
+
+        txtEdicao.setDocument(new StringLimitada(10));
         getContentPane().add(txtEdicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 90, -1));
 
         lblEdicao.setText("Edição");
@@ -358,6 +378,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtAquisicao.setToolTipText("Data de aquisição da obra. Formato AAAA/MM/DD (Ano, Mês, Dia)");
         getContentPane().add(txtAquisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 70, 90, -1));
 
+        txtPaginas.setDocument(new StringLimitada(4));
         txtPaginas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPaginasActionPerformed(evt);
@@ -616,11 +637,11 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     }
 
     public JTextField getTxtCUTTER() {
-        return txtCUTTER;
+        return txtISBN;
     }
 
     public JTextField getTxtISBN() {
-        return txtISBN;
+        return txtCUTTER;
     }
 
     public JTextField getTxtObservacoes() {

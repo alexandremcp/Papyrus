@@ -144,6 +144,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTomboActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtTombo.setDocument(new StringLimitada(20));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="700" y="160" width="105" height="-1"/>
@@ -164,23 +167,32 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Classifica&#xe7;&#xe3;o Decimal Dewey"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtCDD.setDocument(new StringLimitada(20));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="870" y="160" width="105" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCUTTER">
+    <Component class="javax.swing.JTextField" name="txtISBN">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Indicam a autoria de uma obra liter&#xe1;ria."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtISBN.setDocument(new StringLimitada(15));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="700" y="190" width="105" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtISBN">
+    <Component class="javax.swing.JTextField" name="txtCUTTER">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtCUTTER.setDocument(new StringLimitada(10));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="1060" y="160" width="105" height="-1"/>
@@ -191,6 +203,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Observa&#xe7;&#xf5;es a respeito da obra."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtObservacoes.setDocument(new StringLimitada(100));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="100" y="260" width="490" height="-1"/>
@@ -271,6 +286,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Campo obrigat&#xf3;rio"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtDisponivel.setDocument(new StringLimitada(3));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="700" y="260" width="53" height="-1"/>
@@ -447,6 +465,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTituloActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtTitulo.setDocument(new StringLimitada(45));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="80" y="50" width="511" height="-1"/>
@@ -454,6 +475,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtSubTitulo">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtSubTitulo.setDocument(new StringLimitada(45));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="80" y="80" width="509" height="-1"/>
@@ -486,6 +510,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Se pertence a uma serie, Exemplo: Harry potter."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtSerie.setDocument(new StringLimitada(45));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="80" y="110" width="313" height="-1"/>
@@ -504,6 +531,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtExemplar">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtExemplar.setDocument(new StringLimitada(2));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="700" y="40" width="90" height="-1"/>
@@ -533,6 +563,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtVolume">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtVolume.setDocument(new StringLimitada(2));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="700" y="70" width="90" height="-1"/>
@@ -554,6 +587,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Local onde o item est&#xe1; guardado."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtLocal.setDocument(new StringLimitada(45));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="700" y="100" width="470" height="-1"/>
@@ -564,6 +600,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Ano da edi&#xe7;&#xe3;o da obra"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtAno.setDocument(new StringLimitada(4));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="890" y="70" width="90" height="-1"/>
@@ -582,6 +621,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEdicao">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtEdicao.setDocument(new StringLimitada(10));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="890" y="40" width="90" height="-1"/>
@@ -638,6 +680,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPaginasActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtPaginas.setDocument(new StringLimitada(4));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="1080" y="40" width="90" height="-1"/>

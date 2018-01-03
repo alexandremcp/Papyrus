@@ -73,7 +73,7 @@ public final class ControllerTipos {
                     JOptionPane.showMessageDialog(null, "Gravado com sucesso !");
                     carregarTipos();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao tentar gravar !");
+                    JOptionPane.showMessageDialog(null, "Erro ao tentar gravar!\n" + "Algum campo tem valores inválidos.\n" + "Por favor corriga e tente novamente.");
                 }
             }
         }
@@ -89,7 +89,7 @@ public final class ControllerTipos {
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso !");
                 carregarTipos();
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao tentar gravar !");
+                JOptionPane.showMessageDialog(null, "Erro ao tentar gravar!\n" + "Algum campo tem valores inválidos.\n" + "Por favor corriga e tente novamente.");
             }
             varAlterar = false;
         }
