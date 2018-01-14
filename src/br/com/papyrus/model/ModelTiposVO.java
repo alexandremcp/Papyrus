@@ -22,8 +22,6 @@ public class ModelTiposVO {
         this.id = id;
         this.nome = nome;
     }
-    
-    
 
     public int getId() {
         return id;

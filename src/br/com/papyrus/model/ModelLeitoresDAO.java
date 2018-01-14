@@ -1,19 +1,13 @@
 package br.com.papyrus.model;
 
 import br.com.caelum.stella.format.CPFFormatter;
-import br.com.papyrus.controller.ControllerLeitores;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Classe que acessa os dados, fazendo um CRUD para Leitores
@@ -149,7 +143,6 @@ public class ModelLeitoresDAO {
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
             while (rs.next()) {
-                //Instancia um novo objeto
                 ModelLeitoresVO mlvo = new ModelLeitoresVO();
                 mlvo.setId(rs.getInt("Id"));
                 mlvo.setNome(rs.getString("Nome"));

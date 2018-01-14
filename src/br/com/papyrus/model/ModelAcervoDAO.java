@@ -14,6 +14,7 @@ import java.util.List;
  * @author Alexandre Luiz dos Santos
  */
 public class ModelAcervoDAO {
+
     public static String edVO;
 
     /**
@@ -30,8 +31,8 @@ public class ModelAcervoDAO {
             String SQL = "INSERT INTO Acervo (Titulo,SubTitulo,Serie,Idioma,"
                     + "Exemplar,Edicao,Paginas,Volume,Ano,Aquisicao,Local,"
                     + "Editoras_Id,Classificacao_Id,Tipos_Id,Tombo,CDU,CDD,"
-                    + "CUTTER,ISBN,Observacoes,Disponivel) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "CUTTER,ISBN,Observacoes,Disponivel, Autores_Id) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setString(1, Acervo.getTitulo());
             pstm.setString(2, Acervo.getSubTitulo());
@@ -54,6 +55,7 @@ public class ModelAcervoDAO {
             pstm.setString(19, Acervo.getISBN());
             pstm.setString(20, Acervo.getObservacoes());
             pstm.setString(21, Acervo.getDisponivel());
+            pstm.setInt(22, Acervo.getAutores_Id());
             pstm.execute();
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
@@ -77,7 +79,7 @@ public class ModelAcervoDAO {
                     + "Idioma=?,Exemplar=?,Edicao=?,Paginas=?,Volume=?,Ano=?,"
                     + "Aquisicao=?,Local=?,Editoras_Id=?,Classificacao_Id=?,"
                     + "Tipos_Id=?,Tombo=?,CDU=?,CDD=?,CUTTER=?,ISBN=?,"
-                    + "Observacoes=?,Disponivel=? WHERE id = ?";
+                    + "Observacoes=?,Disponivel=?, Autores_Id=? WHERE id = ?";
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setString(1, Acervo.getTitulo());
             pstm.setString(2, Acervo.getSubTitulo());
@@ -100,7 +102,10 @@ public class ModelAcervoDAO {
             pstm.setString(19, Acervo.getISBN());
             pstm.setString(20, Acervo.getObservacoes());
             pstm.setString(21, Acervo.getDisponivel());
-            pstm.setInt(22, Acervo.getId());
+            pstm.setInt(22, Acervo.getAutores_Id());            
+            pstm.setInt(23, Acervo.getId());
+
+
             pstm.execute();
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
@@ -141,11 +146,19 @@ public class ModelAcervoDAO {
         List<ModelAcervoVO> listaRetorno = new ArrayList<ModelAcervoVO>();
         try {
             Connection conn = CriarConexao.abrirConexao();
-            String SQL = "SELECT a.Id, a.Titulo, a.Subtitulo, a.Serie, a.Idioma, a.Exemplar, a.Edicao, a.Paginas, a.Volume, a.Ano,\n"
-                    + "a.Aquisicao, a.Local, a.Editoras_Id, a.Classificacao_Id, a.Tipos_Id, a.Tombo, a.CDU, a.CDD, a.CUTTER, a.ISBN, a.Observacoes,\n"
-                    + "a.Disponivel, e.Nome AS NomeEditoras, c.Nome AS NomeClassificacoes, t.Nome AS NomeTipos FROM acervo a JOIN\n"
-                    + "editoras e ON e.Id = a.Editoras_Id JOIN tipos t ON t.Id = a.Tipos_Id JOIN classificacoes c ON c.Id = a.Classificacao_Id WHERE\n"
-                    + "a.Editoras_Id = e.Id AND a.Classificacao_Id = c.Id AND a.Tipos_Id = t.Id;";
+            String SQL = "SELECT a.Id, a.Titulo, a.Subtitulo, a.Serie, a.Idioma,"
+                    + " a.Exemplar, a.Edicao, a.Paginas, a.Volume, a.Ano, a.Aquisicao,"
+                    + " a.Local, a.Editoras_Id, a.Classificacao_Id, a.Tipos_Id,"
+                    + " a.Tombo, a.CDU, a.CDD, a.CUTTER, a.ISBN, a.Observacoes,"
+                    + " a.Disponivel, a.Autores_Id, e.Nome AS NomeEditoras,"
+                    + " c.Nome AS NomeClassificacoes, t.Nome AS NomeTipos,"
+                    + " au.Id, au.Nome AS AutoresNome "
+                    + " FROM acervo a"
+                    + " JOIN editoras e ON e.Id = a.Editoras_Id"
+                    + " JOIN tipos t ON t.Id = a.Tipos_Id"
+                    + " JOIN classificacoes c ON c.Id = a.Classificacao_Id"
+                    + " JOIN autores au ON au.Id = a.Autores_Id;";
+
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
             while (rs.next()) {
@@ -172,11 +185,13 @@ public class ModelAcervoDAO {
                 acervoVO.setISBN(rs.getString("ISBN"));
                 acervoVO.setObservacoes(rs.getString("Observacoes"));
                 acervoVO.setDisponivel(rs.getString("Disponivel"));
-                
+
                 acervoVO.setNomeEditoras(rs.getString("NomeEditoras"));
                 acervoVO.setNomeClassificacoes(rs.getString("NomeClassificacoes"));
                 acervoVO.setNomeTipos(rs.getString("NomeTipos"));
-                
+                acervoVO.setAutores_Id(rs.getInt("Autores_Id"));
+                acervoVO.setAutoresNome(rs.getString("AutoresNome"));
+
                 listaRetorno.add(acervoVO);
             }
         } catch (ClassNotFoundException | SQLException ex) {

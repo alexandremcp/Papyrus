@@ -4,12 +4,11 @@ import br.com.papyrus.model.ModelAcervoDAO;
 import br.com.papyrus.model.ModelAcervoTableModel;
 import br.com.papyrus.model.ModelAcervoVO;
 import br.com.papyrus.view.ViewAcervo;
+import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
 import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
-import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
 import java.awt.Component;
-import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
@@ -65,6 +64,12 @@ public final class ControllerAcervo {
         return telaAcervo.getTxtTitulo().getText().isEmpty() || telaAcervo.getTxtEditoras_Id().getText().isEmpty() || telaAcervo.getTxtClassificacao_Id().getText().isEmpty() || telaAcervo.getTxtTipos_Id().getText().isEmpty() || telaAcervo.getTxtIdioma().getText().isEmpty() || telaAcervo.getTxtDisponivel().getText().isEmpty();
     }
 
+    /**
+     * Este método duplica o registro selecionado. Isto se faz necessário para
+     * facilitar a digitação de vários itens do acervo que tem as mesmas
+     * caracteristicas variando apenas alguns dados. O usuário deverá alterar os
+     * dados por sua conta mais tarde.
+     */
     public void duplicarAcervo() {
         alterarAcervo();    //Chama alterar para carregar os campos da tabela
         if (validaCampos()) {    //Validação dos campos para não gravar em branco
@@ -74,13 +79,13 @@ public final class ControllerAcervo {
             salvarAcervo();
             JOptionPane.showMessageDialog(null, "Não esqueça de alterar as informações no registro que foi duplicado.");
         }
-
     }
 
     /**
      * Método que salva os dados no AbstractTableModel para Acervo, utiliza a
      * variável varAlterar que se for True indica que é para gravar um novo
      * registro na tabela Acervo através do AbstractTableModel.
+     *
      */
     public void salvarAcervo() {
 
@@ -110,6 +115,10 @@ public final class ControllerAcervo {
                 acervo.setISBN(telaAcervo.getTxtISBN().getText());
                 acervo.setObservacoes(telaAcervo.getTxtObservacoes().getText());
                 acervo.setDisponivel(telaAcervo.getTxtDisponivel().getText());
+
+                acervo.setAutores_Id(Integer.valueOf(telaAcervo.getTxtAutores_Id().getText()));
+                acervo.setAutoresNome(telaAcervo.getTxtAutoresNome().getText());
+
                 ModelAcervoDAO acervoDAO = new ModelAcervoDAO();
 
                 if (acervoDAO.inserirAcervo(acervo)) {
@@ -144,6 +153,10 @@ public final class ControllerAcervo {
             acervo.setISBN(telaAcervo.getTxtISBN().getText());
             acervo.setObservacoes(telaAcervo.getTxtObservacoes().getText());
             acervo.setDisponivel(telaAcervo.getTxtDisponivel().getText());
+
+            acervo.setAutores_Id(Integer.valueOf(telaAcervo.getTxtAutores_Id().getText()));
+            acervo.setAutoresNome(telaAcervo.getTxtAutoresNome().getText());
+
             ModelAcervoDAO acervoDAO = new ModelAcervoDAO();
 
             acervo.setId(Integer.valueOf(telaAcervo.getTxtId().getText()));
@@ -155,7 +168,6 @@ public final class ControllerAcervo {
             }
             varAlterar = false;
         }
-
         limparVariaveis(telaAcervo);
     }
 
@@ -186,7 +198,6 @@ public final class ControllerAcervo {
      */
     public void alterarAcervo() {
         if (telaAcervo.getTbAcervo().getSelectedRow() >= 0) {  //Só altera se tiver uma linha selecionada
-            //ModelAcervoDAO acervoDAO = new ModelAcervoDAO();
             ModelAcervoVO acervo = tbModel.getAcervo(telaAcervo.getTbAcervo().getSelectedRow());
             telaAcervo.getTxtId().setText(String.valueOf(acervo.getId()));
             telaAcervo.getTxtTitulo().setText(acervo.getTitulo());
@@ -215,9 +226,11 @@ public final class ControllerAcervo {
             telaAcervo.getTxtNomeClassificacao().setText(acervo.getNomeClassificacoes());
             telaAcervo.getTxtNomeTipo().setText(acervo.getNomeTipos());
 
+            telaAcervo.getTxtAutores_Id().setText(String.valueOf(acervo.getAutores_Id()));
+            telaAcervo.getTxtAutoresNome().setText(acervo.getAutoresNome());
+
             varAlterar = true;
         }
-
     }
 
     /**
@@ -228,9 +241,7 @@ public final class ControllerAcervo {
      * classe.
      */
     public void limparVariaveis(Object obj) {
-
         JInternalFrame tela = (JInternalFrame) (Object) obj;
-
         for (int i = 0; i < tela.getContentPane().getComponentCount(); i++) {
             //varre todos os componentes
             Component c = tela.getContentPane().getComponent(i);

@@ -1,6 +1,5 @@
 package br.com.papyrus.model;
 
-import br.com.papyrus.view.ViewEditoras;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 

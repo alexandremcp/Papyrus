@@ -11,7 +11,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModelAcervoTableModel extends AbstractTableModel {
 
     private List acervo;
-    private String[] colunas = new String[]{"ID", "TÍTULO", "SUBTITULO", "SERIE", "IDIOMA", "EXEMPLAR", "EDICAO", "PAGINAS", "VOLUME", "ANO", "AQUISICAO", "LOCAL", "EDITORA", "CLASSIFICAÇÃO","TIPO","TOMBO", "CDU", "CDD", "CUTTER", "ISBN", "OBSERVAÇÕES", "DISPONIVEL", "EDITORA", "CLASSIFICAÇÃO", "TIPO"};
+    private String[] colunas = new String[]{"ID", "TÍTULO", "SUBTITULO", "SERIE", "AUTOR", "IDIOMA", "EXEMPLAR", "EDICAO", "PAGINAS", "VOLUME", "ANO", "AQUISICAO", "LOCAL", "EDITORA", "CLASSIFICAÇÃO","TIPO","TOMBO", "CDU", "CDD", "CUTTER", "ISBN", "OBSERVAÇÕES", "DISPONIVEL", "EDITORA", "CLASSIFICAÇÃO", "TIPO"};
 
     @Override
     public String getColumnName(int i) {    //getColumnName() -> Dá nome ao cabeçalho da tabela
@@ -50,46 +50,48 @@ public class ModelAcervoTableModel extends AbstractTableModel {
                 case 3:
                     return acervoVO.getSerie();
                 case 4:
-                    return acervoVO.getIdioma();
+                    return acervoVO.getAutoresNome();                    
                 case 5:
-                    return acervoVO.getExemplar();
+                    return acervoVO.getIdioma();
                 case 6:
-                    return acervoVO.getEdicao();
+                    return acervoVO.getExemplar();
                 case 7:
-                    return acervoVO.getPaginas();
+                    return acervoVO.getEdicao();
                 case 8:
-                    return acervoVO.getVolume();
+                    return acervoVO.getPaginas();
                 case 9:
-                    return acervoVO.getAno();
+                    return acervoVO.getVolume();
                 case 10:
-                    return acervoVO.getAquisicao();
+                    return acervoVO.getAno();
                 case 11:
-                    return acervoVO.getLocal();
+                    return acervoVO.getAquisicao();
                 case 12:
-                    return acervoVO.getEditoras_Id();
+                    return acervoVO.getLocal();
                 case 13:
-                    return acervoVO.getClassificacao_Id();
+                    return acervoVO.getEditoras_Id();
                 case 14:
-                    return acervoVO.getTipos_Id();
+                    return acervoVO.getClassificacao_Id();
                 case 15:
-                    return acervoVO.getTombo();
+                    return acervoVO.getTipos_Id();
                 case 16:
-                    return acervoVO.getCDU();
+                    return acervoVO.getTombo();
                 case 17:
-                    return acervoVO.getCDD();
+                    return acervoVO.getCDU();
                 case 18:
-                    return acervoVO.getCUTTER();
+                    return acervoVO.getCDD();
                 case 19:
-                    return acervoVO.getISBN();
+                    return acervoVO.getCUTTER();
                 case 20:
-                    return acervoVO.getObservacoes();
+                    return acervoVO.getISBN();
                 case 21:
-                    return acervoVO.getDisponivel();
+                    return acervoVO.getObservacoes();
                 case 22:
-                    return acervoVO.getNomeEditoras();
+                    return acervoVO.getDisponivel();
                 case 23:
-                    return acervoVO.getNomeClassificacoes();
+                    return acervoVO.getNomeEditoras();
                 case 24:
+                    return acervoVO.getNomeClassificacoes();
+                case 25:
                     return acervoVO.getNomeTipos();
             }
         }

@@ -15,14 +15,10 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ViewEditoras extends javax.swing.JInternalFrame {
 
-    
-    /**
-     * Creates new form ViewEditoras
-     */
     public ViewEditoras() {
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,11 +49,6 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
         setTitle("Editoras");
 
         bntAlterar.setText("Alterar");
-        bntAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntAlterarActionPerformed(evt);
-            }
-        });
 
         lblId.setText("Código");
 
@@ -66,29 +57,13 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jScrollPaneEditoras, org.jdesktop.beansbinding.ELProperty.create("${columnHeader.Id}"), txtId, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
-
         lblNome.setText("Nome");
 
         txtNome.setDocument(new StringLimitada(45));
 
         btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
 
         bntExcluir.setText("Excluir");
-        bntExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntExcluirActionPerformed(evt);
-            }
-        });
 
         tbEditoras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -168,27 +143,12 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
-    }//GEN-LAST:event_bntAlterarActionPerformed
-
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja fechar o formulário ?", "Aviso", JOptionPane.YES_NO_OPTION);
         if (sair == JOptionPane.YES_OPTION) {
             this.dispose();
         }
     }//GEN-LAST:event_btnFecharActionPerformed
-
-    private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntExcluirActionPerformed
 
     private void tbEditorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEditorasMouseClicked
         // TESTE AQUI
@@ -210,34 +170,32 @@ public class ViewEditoras extends javax.swing.JInternalFrame {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
     //GET para os campo e botões do formulário para uso do ControllerEditoras
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
-    public JButton getBtnSalvar() {  //Método criado na mão para ser usando por ControllerEditoras
+    public JButton getBtnSalvar() {
         return btnSalvar;
     }
 
-    public JButton getBtnExcluir() {  //Método criado na mão para ser usando por ControllerEditoras
+    public JButton getBtnExcluir() {
         return bntExcluir;
     }
 
-    public JButton getBtnAlterar() {  //Método criado na mão para ser usando por ControllerEditoras
+    public JButton getBtnAlterar() {
         return bntAlterar;
     }
 
-    public JTextField getTxtId() { //Método criado na mão para ser usando por ControllerEditoras
+    public JTextField getTxtId() { 
         return txtId;
     }
 
-    public JTextField getTxtNome() {  //Método criado na mão para ser usando por ControllerEditoras
+    public JTextField getTxtNome() {
         return txtNome;
     }
 
-    public JTextField getTxtLocalizacao() {  //Método criado na mão para ser usando por ControllerEditoras
+    public JTextField getTxtLocalizacao() {
         return txtLocalizacao;
     }
 
-    public JTable getTbEditoras() {     //Método criado na mão para ser usando por ControllerEditoras
+    public JTable getTbEditoras() {
         return tbEditoras;
     }
 

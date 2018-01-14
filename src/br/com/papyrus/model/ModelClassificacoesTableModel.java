@@ -56,5 +56,4 @@ public class ModelClassificacoesTableModel extends AbstractTableModel {
         }
         return null;
     }
-
 }

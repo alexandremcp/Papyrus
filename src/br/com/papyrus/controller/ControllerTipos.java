@@ -18,8 +18,8 @@ import javax.swing.JOptionPane;
  * AbstractTableModel, se True é para incluir um novo registro, se False é para
  * alterar Tipos um registro existente.
  *
- * telaTipos: Recebe as informações da ViewTipos.java que é a tela com os
- * dados da Tipo.
+ * telaTipos: Recebe as informações da ViewTipos.java que é a tela com os dados
+ * da Tipo.
  */
 public final class ControllerTipos {
 
@@ -46,7 +46,7 @@ public final class ControllerTipos {
         telaTipos.getBtnAlterar().addActionListener((ActionEvent ae) -> {
             alterarTipos();
         });
-         
+
     }
 
     public ControllerTipos(JDesktopPane DesktopPrincipal) {
@@ -97,8 +97,7 @@ public final class ControllerTipos {
     }
 
     /**
-     * Método que carrega os dados das editoras no AbstractTableModel para
-     * Tipos
+     * Método que carrega os dados das editoras no AbstractTableModel para Tipos
      */
     public void carregarTipos() {
         ModelTiposDAO tiposDAO = new ModelTiposDAO();
@@ -107,8 +106,7 @@ public final class ControllerTipos {
     }
 
     /**
-     * Método que exclui um tipo da tabela do AbstractTableModel para
-     * Tipos
+     * Método que exclui um tipo da tabela do AbstractTableModel para Tipos
      */
     public void excluirTipos() {
         if (telaTipos.getTbTipos().getSelectedRow() >= 0) {  //Só exclui se tiver uma linha selecionada
@@ -134,7 +132,6 @@ public final class ControllerTipos {
         }
     }
 
-   
     /**
      * Método que limpa as variaveis e campos na tela do formulário
      * ViewTipos.java
@@ -144,5 +141,4 @@ public final class ControllerTipos {
         telaTipos.getTxtNome().setText("");
         telaTipos.getTxtDias().setText("");
     }
-
 }

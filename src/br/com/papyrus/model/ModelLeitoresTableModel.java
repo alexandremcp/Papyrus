@@ -94,5 +94,4 @@ public class ModelLeitoresTableModel extends AbstractTableModel {
         }
         return null;
     }
-
 }

@@ -4,22 +4,11 @@ import br.com.papyrus.controller.ControllerEmprestimosComboBoxAcervo;
 import br.com.papyrus.controller.ControllerEmprestimosComboBoxLeitores;
 import br.com.papyrus.controller.StringLimitada;
 import br.com.papyrus.model.CriarConexao;
-import br.com.papyrus.model.ModelEmprestimosVO;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
-import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
-import static java.lang.String.format;
-import static java.lang.String.format;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -37,12 +26,9 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
     ControllerEmprestimosComboBoxLeitores leitores;
     ControllerEmprestimosComboBoxAcervo acervo;
 
-    /**
-     * Creates new form ViewAutores
-     */
     public ViewEmprestimos() {
         initComponents();
-
+        tituloViewEmprestimos();
     }
 
     /**
@@ -54,13 +40,11 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bntAlterar = new javax.swing.JButton();
         lblLeitor = new javax.swing.JLabel();
         txtLeitores_Id = new javax.swing.JTextField();
         lblAcervo = new javax.swing.JLabel();
         txtAcervo_Id = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
-        bntExcluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbEmprestimos = new javax.swing.JTable();
         btnFechar = new javax.swing.JButton();
@@ -81,27 +65,22 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
         txtDisponivelAcervo = new javax.swing.JTextField();
         lblLocalAcervo = new javax.swing.JLabel();
         txtLocalAcervo = new javax.swing.JTextField();
-        lblTituloDaTela = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         txtEmprestimo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtAutorNome = new javax.swing.JTextField();
+        txtAutores_Id = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Emprestimos");
+        setTitle("EMPRESTIMOS");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        bntAlterar.setText("Alterar");
-        bntAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntAlterarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bntAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 551, -1, -1));
 
         lblLeitor.setText("Leitor");
         lblLeitor.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblLeitor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 25, 40, -1));
+        getContentPane().add(lblLeitor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 40, 20));
 
         txtLeitores_Id.setEditable(false);
         txtLeitores_Id.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,12 +88,7 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
                 txtLeitores_IdMouseClicked(evt);
             }
         });
-        txtLeitores_Id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLeitores_IdActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtLeitores_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 60, -1));
+        getContentPane().add(txtLeitores_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 60, -1));
 
         lblAcervo.setText("Acervo");
         lblAcervo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -131,20 +105,7 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
         getContentPane().add(txtAcervo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 60, -1));
 
         btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 551, -1, -1));
-
-        bntExcluir.setText("Excluir");
-        bntExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntExcluirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bntExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 551, -1, -1));
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, -1, -1));
 
         tbEmprestimos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -157,14 +118,9 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbEmprestimos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbEmprestimosMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tbEmprestimos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 354, 1100, 160));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 244, 1100, 270));
 
         btnFechar.setText("Fechar");
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -172,10 +128,10 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
                 btnFecharActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 551, -1, -1));
+        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 530, -1, -1));
 
         txtNomeLeitores.setEditable(false);
-        getContentPane().add(txtNomeLeitores, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 350, -1));
+        getContentPane().add(txtNomeLeitores, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 350, -1));
 
         txtTituloAcervo.setEditable(false);
         getContentPane().add(txtTituloAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 450, -1));
@@ -195,78 +151,52 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
 
         lblExemplarAcervo.setText("Exemplar");
         lblExemplarAcervo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblExemplarAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 60, 20));
+        getContentPane().add(lblExemplarAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 60, 20));
         getContentPane().add(txtExemplarAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 110, -1));
 
         lblEdicaoAcervo.setText("Edição");
         lblEdicaoAcervo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblEdicaoAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 50, 20));
-
-        txtEdicaoAcervo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEdicaoAcervoActionPerformed(evt);
-            }
-        });
+        getContentPane().add(lblEdicaoAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 50, 20));
         getContentPane().add(txtEdicaoAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 120, -1));
 
         lblVolumeAcervo.setText("Volume");
         lblVolumeAcervo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblVolumeAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 50, 20));
-        getContentPane().add(txtVolumeAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 110, -1));
+        getContentPane().add(lblVolumeAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 50, 20));
+        getContentPane().add(txtVolumeAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 110, -1));
 
         lblDisponivelAcervo.setText("Disponivel");
         lblDisponivelAcervo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblDisponivelAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 60, 20));
-        getContentPane().add(txtDisponivelAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, 110, -1));
+        getContentPane().add(lblDisponivelAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 60, 20));
+        getContentPane().add(txtDisponivelAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 120, -1));
 
         lblLocalAcervo.setText("Local");
         lblLocalAcervo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(lblLocalAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 40, 20));
+        getContentPane().add(lblLocalAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 40, 20));
 
         txtLocalAcervo.setToolTipText("Local onde o acervo está guardado fisicamente.");
-        getContentPane().add(txtLocalAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 1050, 30));
+        getContentPane().add(txtLocalAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 520, -1));
 
-        lblTituloDaTela.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblTituloDaTela.setText("ITENS DISPONÍVEIS PARA EMPRÉSTIMO");
-        getContentPane().add(lblTituloDaTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 460, 20));
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTitulo.setText("ITENS DISPONÍVEIS PARA EMPRÉSTIMO");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 1100, 20));
 
         txtEmprestimo.setEditable(false);
         getContentPane().add(txtEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 110, -1));
 
+        jLabel1.setText("Autor");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 40, 20));
+        getContentPane().add(txtAutorNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 450, -1));
+        getContentPane().add(txtAutores_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 60, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntAlterarActionPerformed
-
-    private void txtLeitores_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLeitores_IdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLeitores_IdActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
-        // Exibe janela perguntando se deseja sair da tela autores
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja fechar o formulário ?", "Aviso", JOptionPane.YES_NO_OPTION);
         if (sair == JOptionPane.YES_OPTION) {
             this.dispose();
         }
     }//GEN-LAST:event_btnFecharActionPerformed
-
-    private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntExcluirActionPerformed
-
-    private void tbEmprestimosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEmprestimosMouseClicked
-
-    }//GEN-LAST:event_tbEmprestimosMouseClicked
-
-    private void txtEdicaoAcervoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdicaoAcervoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEdicaoAcervoActionPerformed
 
     private void txtLeitores_IdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeitores_IdMouseClicked
         if (leitores == null) {
@@ -286,15 +216,13 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
             acervo.setVisible(true);
             acervo.setState(JFrame.NORMAL);
         }
-
     }//GEN-LAST:event_txtAcervo_IdMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntAlterar;
-    private javax.swing.JButton bntExcluir;
     private javax.swing.JButton btnFechar;
     public javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAcervo;
     private javax.swing.JLabel lblDevolucao;
@@ -305,10 +233,12 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblLeitor;
     private javax.swing.JLabel lblLocalAcervo;
     private javax.swing.JLabel lblSubTituloAcervo;
-    private javax.swing.JLabel lblTituloDaTela;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblVolumeAcervo;
     private javax.swing.JTable tbEmprestimos;
     public static javax.swing.JTextField txtAcervo_Id;
+    public static javax.swing.JTextField txtAutorNome;
+    public static javax.swing.JTextField txtAutores_Id;
     public static javax.swing.JTextField txtDevolucao;
     public static javax.swing.JTextField txtDisponivelAcervo;
     public static javax.swing.JTextField txtEdicaoAcervo;
@@ -322,19 +252,17 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField txtVolumeAcervo;
     // End of variables declaration//GEN-END:variables
 
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
-    //GET para os campo e botões do formulário para uso do ControllerEmprestimos
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
+    //GET para os campos e botões do formulário para uso do ControllerEmprestimos
+    public JTextField getTxtAutores_Id() {
+        return txtAutores_Id;
+    }
+
+    public JTextField getTxtAutorNome() {
+        return txtAutorNome;
+    }
+
     public JButton getBtnSalvar() {
         return btnSalvar;
-    }
-
-    public JButton getBtnExcluir() {
-        return bntExcluir;
-    }
-
-    public JButton getBtnAlterar() {
-        return bntAlterar;
     }
 
     public JTextField getTxtLeitores_Id() {
@@ -344,6 +272,7 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
     public JTextField getTxtAcervo_Id() {
         return txtAcervo_Id;
     }
+
     public JTextField getTxtEmprestimo() {
         return txtEmprestimo;
     }
@@ -407,7 +336,7 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
         this.tbEmprestimos.getColumnModel().getColumn(1).setResizable(true);
         this.tbEmprestimos.getColumnModel().getColumn(2).setPreferredWidth(200);
         this.tbEmprestimos.getColumnModel().getColumn(2).setResizable(true);
-        this.tbEmprestimos.getColumnModel().getColumn(3).setPreferredWidth(60);
+        this.tbEmprestimos.getColumnModel().getColumn(3).setPreferredWidth(80);
         this.tbEmprestimos.getColumnModel().getColumn(3).setResizable(true);
         this.tbEmprestimos.getColumnModel().getColumn(4).setPreferredWidth(60);
         this.tbEmprestimos.getColumnModel().getColumn(4).setResizable(true);
@@ -415,7 +344,28 @@ public class ViewEmprestimos extends javax.swing.JInternalFrame {
         this.tbEmprestimos.getColumnModel().getColumn(5).setResizable(true);
         this.tbEmprestimos.getColumnModel().getColumn(6).setPreferredWidth(150);
         this.tbEmprestimos.getColumnModel().getColumn(6).setResizable(true);
-        this.tbEmprestimos.getColumnModel().getColumn(7).setPreferredWidth(80);
+        this.tbEmprestimos.getColumnModel().getColumn(7).setPreferredWidth(90);
         this.tbEmprestimos.getColumnModel().getColumn(7).setResizable(true);
+    }
+
+    /**
+     * Este método configura o titulo da ViewEmprestimos, de acordo com a
+     * disponibilidade de itens no acervo.
+     */
+    private void tituloViewEmprestimos() {
+        try {
+            Connection conn = CriarConexao.abrirConexao();
+            String SQL = "SELECT * FROM acervo WHERE Disponivel = 'sim'";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(SQL);
+            if (rs.next()) {
+                lblTitulo.setText("ESCOLHA UM ITEM DO ACERVO PARA EMPRÉSTIMO");
+            } else {
+                lblTitulo.setText("NÃO EXISTEM ITENS DISPONÍVEIS PARA EMPRÉSTIMO");
+                btnSalvar.setEnabled(false);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }

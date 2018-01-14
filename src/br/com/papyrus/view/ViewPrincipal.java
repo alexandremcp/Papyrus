@@ -6,6 +6,7 @@ import br.com.papyrus.controller.ControllerClassificacoes;
 import br.com.papyrus.controller.ControllerEditoras;
 import br.com.papyrus.controller.ControllerTipos;
 import br.com.papyrus.controller.ControllerLeitores;
+import br.com.papyrus.controller.ControllerEmprestimos;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
 
@@ -41,9 +42,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jmMovimentacao = new javax.swing.JMenu();
         jmEmprestimos = new javax.swing.JMenuItem();
         jmDevolucoes = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jmCadastros = new javax.swing.JMenu();
         jmAcervo = new javax.swing.JMenuItem();
         jmAutores = new javax.swing.JMenuItem();
@@ -97,20 +95,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
         jmDevolucoes.setText("Devoluções");
         jmMovimentacao.add(jmDevolucoes);
-
-        jMenuItem1.setText("Renovações");
-        jmMovimentacao.add(jMenuItem1);
-
-        jMenuItem2.setText("Reservas");
-        jmMovimentacao.add(jMenuItem2);
-
-        jMenuItem3.setText("Multas");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jmMovimentacao.add(jMenuItem3);
 
         jMenuBar2.add(jmMovimentacao);
 
@@ -209,10 +193,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmprestimosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmEmprestimosActionPerformed
-
     private void jmSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSairActionPerformed
         // Exibe janela perguntando se deseja sair do sistema
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair ?", "Aviso", JOptionPane.YES_NO_OPTION);
@@ -226,10 +206,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
         ViewSobre sobre = new ViewSobre();
         sobre.setVisible(true);
     }//GEN-LAST:event_jmSobreActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAutoresActionPerformed
         // Chama a tela "ViewAutores" dentro do Desktop pane
@@ -258,6 +234,10 @@ public class ViewPrincipal extends javax.swing.JFrame {
     private void jmLeitoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmLeitoresActionPerformed
         ControllerLeitores mostrarLeitores = new ControllerLeitores();
     }//GEN-LAST:event_jmLeitoresActionPerformed
+
+    private void jmEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmprestimosActionPerformed
+        ControllerEmprestimos mostrarEmprestimos = new ControllerEmprestimos();
+    }//GEN-LAST:event_jmEmprestimosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,17 +279,14 @@ public class ViewPrincipal extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane DesktopPrincipal;
     private javax.swing.JLabel fundoViewPrincipal;
     private javax.swing.JMenuBar jMenuBar2;
-    public static javax.swing.JMenuItem jMenuItem1;
-    public static javax.swing.JMenuItem jMenuItem2;
-    public static javax.swing.JMenuItem jMenuItem3;
     public static javax.swing.JMenuItem jmAcervo;
     public static javax.swing.JMenuItem jmAjuda;
     public static javax.swing.JMenuItem jmAutores;
     private javax.swing.JMenu jmCadastros;
     public static javax.swing.JMenuItem jmClassificacoes;
-    public static javax.swing.JMenuItem jmDevolucoes;
+    private javax.swing.JMenuItem jmDevolucoes;
     public static javax.swing.JMenuItem jmEditoras;
-    public static javax.swing.JMenuItem jmEmprestimos;
+    private javax.swing.JMenuItem jmEmprestimos;
     public static javax.swing.JMenuItem jmLeitores;
     private javax.swing.JMenu jmMovimentacao;
     private javax.swing.JMenu jmOpcoes;

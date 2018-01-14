@@ -1,8 +1,6 @@
 package br.com.papyrus.view;
 
 import br.com.papyrus.controller.StringLimitada;
-import br.com.papyrus.model.ModelAutoresTableModel;
-import br.com.papyrus.model.ModelAutoresVO;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -17,9 +15,6 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ViewClassificacoes extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ViewClassificacoes
-     */
     public ViewClassificacoes() {
         initComponents();
     }
@@ -48,41 +43,21 @@ public class ViewClassificacoes extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Classificacao");
+        setTitle("CLASSIFICAÇÃO");
 
         bntAlterar.setText("Alterar");
-        bntAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntAlterarActionPerformed(evt);
-            }
-        });
 
         lblId.setText("Código");
 
         txtId.setEditable(false);
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
 
         lblNome.setText("Nome");
 
         txtNome.setDocument(new StringLimitada(15));
 
         btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
 
         bntExcluir.setText("Excluir");
-        bntExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntExcluirActionPerformed(evt);
-            }
-        });
 
         tbClassificacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,11 +70,6 @@ public class ViewClassificacoes extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbClassificacao.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbClassificacaoMouseClicked(evt);
-            }
-        });
         jScrollPaneClassificacao.setViewportView(tbClassificacao);
 
         btnFechar.setText("Fechar");
@@ -159,18 +129,6 @@ public class ViewClassificacoes extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntAlterarActionPerformed
-
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         // Exibe janela perguntando se deseja sair da tela autores
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja fechar o formulário ?", "Aviso", JOptionPane.YES_NO_OPTION);
@@ -178,14 +136,6 @@ public class ViewClassificacoes extends javax.swing.JInternalFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnFecharActionPerformed
-
-    private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntExcluirActionPerformed
-
-    private void tbClassificacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClassificacaoMouseClicked
-
-    }//GEN-LAST:event_tbClassificacaoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -201,26 +151,24 @@ public class ViewClassificacoes extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
     //GET para os campo e botões do formulário para uso do ControllerClassificacoes
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
-    public JButton getBtnSalvar() {  //Método criado na mão para ser usando por 
+    public JButton getBtnSalvar() {  
         return btnSalvar;
     }
 
-    public JButton getBtnExcluir() {  //Método criado na mão para ser usando por ControllerClassificacoes
+    public JButton getBtnExcluir() { 
         return bntExcluir;
     }
 
-    public JButton getBtnAlterar() {  //Método criado na mão para ser usando por ControllerClassificacoes
+    public JButton getBtnAlterar() { 
         return bntAlterar;
     }
 
-    public JTextField getTxtId() { //Método criado na mão para ser usando por ControllerClassificacoes
+    public JTextField getTxtId() { 
         return txtId;
     }
 
-    public JTextField getTxtNome() {  //Método criado na mão para ser usando por ControllerClassificacoes
+    public JTextField getTxtNome() { 
         return txtNome;
     }
 
@@ -245,5 +193,4 @@ public class ViewClassificacoes extends javax.swing.JInternalFrame {
         this.tbClassificacao.getColumnModel().getColumn(1).setPreferredWidth(500);
         this.tbClassificacao.getColumnModel().getColumn(1).setResizable(true);
     }
-
 }

@@ -30,10 +30,7 @@ public class ModelClassificacoesDAO {
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setString(1, classificacao.getNome());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -56,10 +53,7 @@ public class ModelClassificacoesDAO {
             pstm.setString(1, classificacao.getNome());
             pstm.setInt(2, classificacao.getId());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -81,10 +75,7 @@ public class ModelClassificacoesDAO {
             PreparedStatement pstm = conn.prepareStatement(SQL);
             pstm.setInt(1, classificacao.getId());
             pstm.execute();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return false;
         }
@@ -111,10 +102,7 @@ public class ModelClassificacoesDAO {
                 vo.setNome(rs.getString("Nome"));
                 listaRetorno.add(vo);
             }
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            return null;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
             return null;
         }

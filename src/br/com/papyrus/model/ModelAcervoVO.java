@@ -1,6 +1,3 @@
-/*
- * Definindo Get e Set para "Autores"
- */
 package br.com.papyrus.model;
 
 /**
@@ -33,11 +30,30 @@ public class ModelAcervoVO {
     private String ISBN;
     private String Observacoes;
     private String Disponivel;
+    
+    private int Autores_Id;             //vem da tabela autores
+    private String AutoresNome;         //vem da tabela autores    
 
     private String NomeEditoras;        //Vem da tabela editoras
     private String NomeClassificacoes;  //Vem da tabela classificacoes
     private String NomeTipos;           //Vem da tabela tipos
 
+    public int getAutores_Id(){
+        return Autores_Id;
+    }
+    
+    public void setAutores_Id(int Autores_Id){
+        this.Autores_Id = Autores_Id;
+    } 
+    
+    public String getAutoresNome(){
+        return AutoresNome;
+    }
+    
+    public void setAutoresNome(String AutoresNome){
+        this.AutoresNome = AutoresNome;
+    }
+    
     public int getId() {
         return Id;
     }

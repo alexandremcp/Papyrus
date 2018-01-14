@@ -5,15 +5,8 @@ import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
 import br.com.papyrus.controller.StringLimitada;
 import java.awt.Color;
-import java.awt.Event;
 import java.awt.event.KeyEvent;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -21,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  * Classe que cria e gerencia a tela para Leitores. O Campo CPF tem métodos e
- * propriedades vinvuladas a ele, é utilizado o médoto apenasNumeros que limita
+ * propriedades vinCuladas a ele, é utilizado o médoto apenasNumeros que limita
  * a digitação apenas a numeros. CPFValidator que valida o CPF. CPFFormatter que
  * formata o CPF. E no atributo Código - Código de Pré-inicialização é chamada a
  * classe StringLimitada que limita a digitação a 14 digitos, sendo que 11 são
@@ -31,9 +24,6 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ViewLeitores extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ViewAutores
-     */
     public ViewLeitores() {
         initComponents();
     }
@@ -104,27 +94,12 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bntAlterar.setText("Alterar");
-        bntAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntAlterarActionPerformed(evt);
-            }
-        });
         getContentPane().add(bntAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 533, -1, -1));
 
         btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 533, -1, -1));
 
         bntExcluir.setText("Excluir");
-        bntExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntExcluirActionPerformed(evt);
-            }
-        });
         getContentPane().add(bntExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 533, -1, -1));
 
         tbLeitores.setModel(new javax.swing.table.DefaultTableModel(
@@ -138,11 +113,6 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbLeitores.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbLeitoresMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tbLeitores);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 345, 1111, 170));
@@ -306,14 +276,6 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         setBounds(0, 0, 1183, 631);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntAlterarActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         // Exibe janela perguntando se deseja sair da tela autores
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja fechar o formulário ?", "Aviso", JOptionPane.YES_NO_OPTION);
@@ -321,14 +283,6 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnFecharActionPerformed
-
-    private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntExcluirActionPerformed
-
-    private void tbLeitoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLeitoresMouseClicked
-
-    }//GEN-LAST:event_tbLeitoresMouseClicked
 
     private void txtCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCPFFocusLost
         String cpf = txtCPF.getText();
@@ -395,18 +349,16 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtTurno;
     // End of variables declaration//GEN-END:variables
 
-////////////////////////////////  ATENÇÃO  ////////////////////////////////
     //GET para os campo e botões do formulário para uso do ControllerLeitores
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
-    public JButton getBtnSalvar() {  //Método criado na mão para ser usando por 
+    public JButton getBtnSalvar() {
         return btnSalvar;
     }
 
-    public JButton getBtnExcluir() {  //Método criado na mão para ser usando por ControllerAutores
+    public JButton getBtnExcluir() {
         return bntExcluir;
     }
 
-    public JButton getBtnAlterar() {  //Método criado na mão para ser usando por ControllerAutores
+    public JButton getBtnAlterar() {
         return bntAlterar;
     }
 

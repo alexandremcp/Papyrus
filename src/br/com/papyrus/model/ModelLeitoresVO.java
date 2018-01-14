@@ -209,5 +209,4 @@ public class ModelLeitoresVO {
     public void setTbLeitores(String tbLeitores) {
         this.tbLeitores = tbLeitores;
     }
-
 }

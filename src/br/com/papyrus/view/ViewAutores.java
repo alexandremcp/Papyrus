@@ -1,13 +1,7 @@
 package br.com.papyrus.view;
 
 import br.com.papyrus.controller.StringLimitada;
-import br.com.papyrus.model.CriarConexao;
-import br.com.papyrus.model.ModelAutoresDAO;
-import br.com.papyrus.model.ModelAutoresVO;
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -21,9 +15,6 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ViewAutores extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ViewAutores
-     */
     public ViewAutores() {
         initComponents();
     }
@@ -55,20 +46,10 @@ public class ViewAutores extends javax.swing.JInternalFrame {
         setTitle("Autores");
 
         bntAlterar.setText("Alterar");
-        bntAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntAlterarActionPerformed(evt);
-            }
-        });
 
         lblId.setText("Código");
 
         txtId.setEditable(false);
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
 
         lblNome.setText("Nome");
 
@@ -76,18 +57,8 @@ public class ViewAutores extends javax.swing.JInternalFrame {
         txtNome.setToolTipText("Nome do autor da obra");
 
         btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
 
         bntExcluir.setText("Excluir");
-        bntExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntExcluirActionPerformed(evt);
-            }
-        });
 
         tbAutores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,11 +71,6 @@ public class ViewAutores extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbAutores.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbAutoresMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tbAutores);
 
         btnFechar.setText("Fechar");
@@ -161,20 +127,10 @@ public class ViewAutores extends javax.swing.JInternalFrame {
                 .addGap(45, 45, 45))
         );
 
+        getAccessibleContext().setAccessibleName("AUTORES");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntAlterarActionPerformed
-
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-
-    }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         // Exibe janela perguntando se deseja sair da tela autores
@@ -183,14 +139,6 @@ public class ViewAutores extends javax.swing.JInternalFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnFecharActionPerformed
-
-    private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntExcluirActionPerformed
-
-    private void tbAutoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbAutoresMouseClicked
-
-    }//GEN-LAST:event_tbAutoresMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -206,26 +154,24 @@ public class ViewAutores extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 
-////////////////////////////////  ATENÇÃO  ////////////////////////////////
     //GET para os campo e botões do formulário para uso do ControllerAutores
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
-     public JButton getBtnSalvar() {  //Método criado na mão para ser usando por 
+     public JButton getBtnSalvar() {  
         return btnSalvar;
     }
 
-    public JButton getBtnExcluir() {  //Método criado na mão para ser usando por ControllerAutores
+    public JButton getBtnExcluir() {  
         return bntExcluir;
     }
 
-    public JButton getBtnAlterar() {  //Método criado na mão para ser usando por ControllerAutores
+    public JButton getBtnAlterar() {  
         return bntAlterar;
     }
 
-    public JTextField getTxtId() { //Método criado na mão para ser usando por ControllerAutores
+    public JTextField getTxtId() { 
         return txtId;
     }
 
-    public JTextField getTxtNome() {  //Método criado na mão para ser usando por ControllerAutores
+    public JTextField getTxtNome() { 
         return txtNome;
     }
 

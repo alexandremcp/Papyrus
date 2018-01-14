@@ -10,13 +10,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import static br.com.papyrus.view.ViewPrincipal.DesktopPrincipal;
 import java.awt.Component;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
@@ -227,5 +221,4 @@ public final class ControllerLeitores {
             }
         }
     }
-
 }

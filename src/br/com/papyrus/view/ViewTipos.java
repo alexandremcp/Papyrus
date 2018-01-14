@@ -15,9 +15,6 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ViewTipos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ViewEditoras
-     */
     public ViewTipos() {
         initComponents();
     }
@@ -52,11 +49,6 @@ public class ViewTipos extends javax.swing.JInternalFrame {
         setTitle("Tipos");
 
         bntAlterar.setText("Alterar");
-        bntAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntAlterarActionPerformed(evt);
-            }
-        });
 
         lblId.setText("Código");
 
@@ -65,30 +57,14 @@ public class ViewTipos extends javax.swing.JInternalFrame {
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jScrollPaneTipos, org.jdesktop.beansbinding.ELProperty.create("${columnHeader.Id}"), txtId, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
-
         lblNome.setText("Nome");
 
         txtNome.setDocument(new StringLimitada(15));
         txtNome.setToolTipText("Descrição do tipo de mídia. Exemplo: DVD, Livro, Jornal, etc.");
 
         btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
 
         bntExcluir.setText("Excluir");
-        bntExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntExcluirActionPerformed(evt);
-            }
-        });
 
         tbTipos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,11 +103,6 @@ public class ViewTipos extends javax.swing.JInternalFrame {
 
         txtDias.setDocument(new StringLimitada(2));
         txtDias.setToolTipText("Duração do empréstimo em dias");
-        txtDias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDiasActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,18 +161,6 @@ public class ViewTipos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntAlterarActionPerformed
-
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         // Exibe janela perguntando se deseja sair da tela editoras
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja fechar o formulário ?", "Aviso", JOptionPane.YES_NO_OPTION);
@@ -210,18 +169,7 @@ public class ViewTipos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnFecharActionPerformed
 
-    private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntExcluirActionPerformed
-
-    private void txtDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDiasActionPerformed
-
     private void tbTiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTiposMouseClicked
-        // TESTE AQUI
-
-
     }//GEN-LAST:event_tbTiposMouseClicked
 
 
@@ -241,34 +189,32 @@ public class ViewTipos extends javax.swing.JInternalFrame {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
     //GET para os campo e botões do formulário para uso do ControllerTipos
-    ////////////////////////////////  ATENÇÃO  ////////////////////////////////
-    public JButton getBtnSalvar() {  //Método criado na mão para ser usando por ControllerTipos
+    public JButton getBtnSalvar() {
         return btnSalvar;
     }
 
-    public JButton getBtnExcluir() {  //Método criado na mão para ser usando por ControllerTipos
+    public JButton getBtnExcluir() {
         return bntExcluir;
     }
 
-    public JButton getBtnAlterar() {  //Método criado na mão para ser usando por ControllerTipos
+    public JButton getBtnAlterar() {
         return bntAlterar;
     }
 
-    public JTextField getTxtId() { //Método criado na mão para ser usando por ControllerTipos
+    public JTextField getTxtId() {
         return txtId;
     }
 
-    public JTextField getTxtNome() {  //Método criado na mão para ser usando por ControllerTipos
+    public JTextField getTxtNome() {
         return txtNome;
     }
 
-    public JTextField getTxtDias() {  //Método criado na mão para ser usando por ControllerTipos
+    public JTextField getTxtDias() {
         return txtDias;
     }
 
-    public JTable getTbTipos() {     //Método criado na mão para ser usando por ControllerTipos
+    public JTable getTbTipos() {
         return tbTipos;
     }
 
@@ -291,5 +237,4 @@ public class ViewTipos extends javax.swing.JInternalFrame {
         this.tbTipos.getColumnModel().getColumn(2).setPreferredWidth(150);
         this.tbTipos.getColumnModel().getColumn(2).setResizable(true);
     }
-
 }

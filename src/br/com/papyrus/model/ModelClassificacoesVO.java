@@ -22,8 +22,6 @@ public class ModelClassificacoesVO {
         this.id = id;
         this.nome = nome;
     }
-    
-    
 
     public int getId() {
         return id;
@@ -40,7 +38,4 @@ public class ModelClassificacoesVO {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    
-    
 }
