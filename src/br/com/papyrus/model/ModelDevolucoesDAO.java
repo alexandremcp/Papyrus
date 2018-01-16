@@ -9,36 +9,35 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
- * Classe que acessa os dados, fazendo um CRUD para Emprestimos
+ * Classe que acessa os dados, fazendo um CRUD para Devolucoes
  *
  * @author Alexandre Luiz dos Santos
  */
-public class ModelEmprestimosDAO {
+public class ModelDevolucoesDAO {
 
     /**
      * Método responsável pelo acesso a dados, inserindo registros em
-     * Emprestimos, chamado pelo AbstractTableModel
+     * Devolucoes, chamado pelo AbstractTableModel
      *
-     * @param Emprestimo os dados a serem salvos no registro para Emprestimos
+     * @param Devolucao os dados a serem salvos no registro para Devolucoes
      * @return Retorna true se conseguiu inserir o registro e false caso dê
      * algum problema
      */
-    public boolean inserirEmprestimos(ModelEmprestimosVO Emprestimo) {
+    public boolean inserirDevolucoes(ModelDevolucoesVO Devolucao) {
         try {
             LocalDate dt = LocalDate.now();
             DateTimeFormatter formatoUN = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            String dataEmprestimo = null;
-            dataEmprestimo = dt.format(formatoUN);
- 
+            String dataDevolucao = null;
+            dataDevolucao = dt.format(formatoUN);
+
             Connection conn = CriarConexao.abrirConexao();
-            String SQL = "INSERT INTO Emprestimos (Leitores_Id,Acervo_Id,Emprestimo,Hora) VALUES (?,?,?,CURTIME())";
+            String SQL = "INSERT INTO Devolucoes (Leitores_Id,Acervo_Id,Devolucao,Hora) VALUES (?,?,?,CURTIME())";
             PreparedStatement pstm = conn.prepareStatement(SQL);
-            pstm.setInt(1, Emprestimo.getLeitores_Id());
-            pstm.setInt(2, Emprestimo.getAcervo_Id());
-            pstm.setString(3, dataEmprestimo);
+            pstm.setInt(1, Devolucao.getLeitores_Id());
+            pstm.setInt(2, Devolucao.getAcervo_Id());
+            pstm.setString(3, dataDevolucao);
             pstm.execute();
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
@@ -49,8 +48,9 @@ public class ModelEmprestimosDAO {
             Connection conn = CriarConexao.abrirConexao();
             String SQL = "UPDATE acervo SET Disponivel=? WHERE Id=?";
             PreparedStatement pstm = conn.prepareStatement(SQL);
-            pstm.setString(1, "não");
-            pstm.setInt(2, Emprestimo.getAcervo_Id());
+            pstm.setString(1, "sim");
+            pstm.setInt(2, Devolucao.getAcervo_Id());
+            System.out.println(Devolucao.getDisponivelAcervo());
             pstm.execute();
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
@@ -62,21 +62,22 @@ public class ModelEmprestimosDAO {
 
     /**
      * Método responsável pelo acesso a dados, alterando registros em
-     * Emprestimo, chamado pelo AbstractTableModel
+     * Devolucao, chamado pelo AbstractTableModel
      *
-     * @param Emprestimo os dados a serem alterados no registro para Emprestimo
+     * @param Devolucao os dados a serem alterados no registro para Devolucao
      * @return Retorna true se conseguiu alterar o registro e false caso dê
      * algum problema
      */
+
     /**
      * Método responsável pelo acesso a dados, listando os registros de
-     * Emprestimos, para um ArrayList para ser carregado no AbstractTableModel
+     * Devolucoes, para um ArrayList para ser carregado no AbstractTableModel
      *
      * @return listaRetorno Retorna um ArrayList com os registros de
-     * Emprestimos.
+     * Devolucoes.
      */
-    public List<ModelEmprestimosVO> listarEmprestimos() {
-        List<ModelEmprestimosVO> listaRetorno = new ArrayList<ModelEmprestimosVO>();
+    public List<ModelDevolucoesVO> listarDevolucoes() {
+        List<ModelDevolucoesVO> listaRetorno = new ArrayList<ModelDevolucoesVO>();
         try {
             Connection conn = CriarConexao.abrirConexao();
             String SQL = "SELECT ace.Id AS IdAcervo, ace.Titulo AS TituloAcervo,"
@@ -85,12 +86,15 @@ public class ModelEmprestimosDAO {
                     + " ace.Local AS LocalAcervo, ace.Disponivel AS DisponivelAcervo,"
                     + " tip.Id AS IdTipos, tip.Dias AS DiasTipos FROM acervo ace"
                     + " JOIN tipos tip ON tip.Id = ace.Tipos_Id"
-                    + " WHERE ace.Disponivel = 'sim'";
+                    + " JOIN emprestimos emp ON emp.Acervo_Id = ace.Id"
+                    + " JOIN leitores lei ON lei.Id = emp.Leitores_Id"
+                    + " WHERE ace.Disponivel = 'não' "
+                    + " GROUP BY emp.Acervo_Id";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
 
             while (rs.next()) {
-                ModelEmprestimosVO EmprestimosVO = new ModelEmprestimosVO();
+                ModelDevolucoesVO EmprestimosVO = new ModelDevolucoesVO();
                 EmprestimosVO.setIdAcervo(rs.getInt("IdAcervo"));
                 EmprestimosVO.setTituloAcervo(rs.getString("TituloAcervo"));
                 EmprestimosVO.setSubTituloAcervo(rs.getString("SubTituloAcervo"));
@@ -103,12 +107,8 @@ public class ModelEmprestimosDAO {
                 EmprestimosVO.setDiasTipos(rs.getInt("DiasTipos"));
                 listaRetorno.add(EmprestimosVO);
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
-            return null;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "O leitor deverá esperar 24h para alugar o mesmo item.");
             return null;
         }
         return listaRetorno;

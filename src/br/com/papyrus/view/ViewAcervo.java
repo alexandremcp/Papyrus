@@ -7,6 +7,8 @@ import br.com.papyrus.controller.ControllerAcervoComboBoxIdioma;
 import br.com.papyrus.controller.ControllerAcervoComboBoxTipos;
 import br.com.papyrus.controller.StringLimitada;
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -152,6 +154,7 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
         txtCDU.setDocument(new StringLimitada(20));
         getContentPane().add(txtCDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 105, -1));
 
+        txtTombo.setDocument(new StringLimitada(6));
         txtTombo.setToolTipText("Classificação Decimal Universal");
         getContentPane().add(txtTombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 190, 105, -1));
 
@@ -554,11 +557,11 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     }
 
     public JTextField getTxtTombo() {
-        return txtCDU;
+        return txtTombo;
     }
 
     public JTextField getTxtCDU() {
-        return txtTombo;
+        return txtCDU;
     }
 
     public JTextField getTxtCDD() {
@@ -566,11 +569,11 @@ public class ViewAcervo extends javax.swing.JInternalFrame {
     }
 
     public JTextField getTxtCUTTER() {
-        return txtISBN;
+        return txtCUTTER;
     }
 
     public JTextField getTxtISBN() {
-        return txtCUTTER;
+        return txtISBN;
     }
 
     public JTextField getTxtObservacoes() {

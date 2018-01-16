@@ -235,6 +235,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMatricula">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtMatricula.setDocument(new StringLimitada(10));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="440" y="130" width="120" height="-1"/>
@@ -348,6 +351,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIdentidade">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtIdentidade.setDocument(new StringLimitada(15));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="390" y="280" width="170" height="-1"/>
@@ -377,6 +383,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTelefone">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtTelefone.setDocument(new StringLimitada(11));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="660" y="50" width="140" height="-1"/>

@@ -4,6 +4,7 @@ import br.com.papyrus.controller.ControllerAcervo;
 import br.com.papyrus.controller.ControllerAutores;
 import br.com.papyrus.controller.ControllerClassificacoes;
 import br.com.papyrus.controller.ControllerEditoras;
+import br.com.papyrus.controller.ControllerDevolucoes;
 import br.com.papyrus.controller.ControllerTipos;
 import br.com.papyrus.controller.ControllerLeitores;
 import br.com.papyrus.controller.ControllerEmprestimos;
@@ -20,9 +21,6 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
     public String mostrarTelaAutores;
 
-    /**
-     * Cria o formulário TelaPrincipal com os Menus do sistema
-     */
     public ViewPrincipal() {
         initComponents();
     }
@@ -50,8 +48,15 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jmTiposDeItens = new javax.swing.JMenuItem();
         jmLeitores = new javax.swing.JMenuItem();
         jmRelatorios = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jmOpcoes = new javax.swing.JMenu();
-        jmAjuda = new javax.swing.JMenuItem();
         jmSobre = new javax.swing.JMenuItem();
         jmSair = new javax.swing.JMenuItem();
 
@@ -72,8 +77,8 @@ public class ViewPrincipal extends javax.swing.JFrame {
             DesktopPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DesktopPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(fundoViewPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(fundoViewPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1260, Short.MAX_VALUE)
+                .addContainerGap())
         );
         DesktopPrincipalLayout.setVerticalGroup(
             DesktopPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,6 +99,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jmMovimentacao.add(jmEmprestimos);
 
         jmDevolucoes.setText("Devoluções");
+        jmDevolucoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmDevolucoesActionPerformed(evt);
+            }
+        });
         jmMovimentacao.add(jmDevolucoes);
 
         jMenuBar2.add(jmMovimentacao);
@@ -150,13 +160,61 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
         jMenuBar2.add(jmCadastros);
 
-        jmRelatorios.setText("Relatórios");
+        jmRelatorios.setText("Consultas");
+
+        jMenuItem1.setText("Coltulta Acervo Agrupada por Autor");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmRelatorios.add(jMenuItem1);
+
+        jMenuItem2.setText("Coltulta Acervo Agrupada por Editora");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jmRelatorios.add(jMenuItem2);
+
+        jMenuItem3.setText("Coltulta Acervo Agrupada por Classificação");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jmRelatorios.add(jMenuItem3);
+
+        jMenuItem4.setText("Coltulta Acervo Agrupada por Tipo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jmRelatorios.add(jMenuItem4);
+        jmRelatorios.add(jSeparator1);
+
+        jMenuItem5.setText("Consulta Geral");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jmRelatorios.add(jMenuItem5);
+        jmRelatorios.add(jSeparator2);
+
+        jMenuItem6.setText("Contulta por Emprestimos e Devoluções");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jmRelatorios.add(jMenuItem6);
+
         jMenuBar2.add(jmRelatorios);
 
         jmOpcoes.setText("Opções");
-
-        jmAjuda.setText("Ajuda");
-        jmOpcoes.add(jmAjuda);
 
         jmSobre.setText("Sobre");
         jmSobre.addActionListener(new java.awt.event.ActionListener() {
@@ -202,20 +260,15 @@ public class ViewPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmSairActionPerformed
 
     private void jmSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSobreActionPerformed
-        // Chama a tela "Sobre"
         ViewSobre sobre = new ViewSobre();
         sobre.setVisible(true);
     }//GEN-LAST:event_jmSobreActionPerformed
 
     private void jmAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAutoresActionPerformed
-        // Chama a tela "ViewAutores" dentro do Desktop pane
-        // a partir do ControllerAutores.java
         ControllerAutores mostrarAutores = new ControllerAutores();
     }//GEN-LAST:event_jmAutoresActionPerformed
 
     private void jmEditorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEditorasActionPerformed
-        // Chama a tela "ViewEditoras" dentro do Desktop pane
-        // a partir do ControllerEditoras.java
         ControllerEditoras mostrarEditoras = new ControllerEditoras();
     }//GEN-LAST:event_jmEditorasActionPerformed
 
@@ -238,6 +291,46 @@ public class ViewPrincipal extends javax.swing.JFrame {
     private void jmEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmprestimosActionPerformed
         ControllerEmprestimos mostrarEmprestimos = new ControllerEmprestimos();
     }//GEN-LAST:event_jmEmprestimosActionPerformed
+
+    private void jmDevolucoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmDevolucoesActionPerformed
+        ControllerDevolucoes mostrarDevolucoes = new ControllerDevolucoes();
+    }//GEN-LAST:event_jmDevolucoesActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ColtultaAcervoAgrupadaPorAutor telaContulta = new ColtultaAcervoAgrupadaPorAutor();
+        DesktopPrincipal.add(telaContulta);
+        telaContulta.show();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ColtultaAcervoAgrupadaPorEditora telaContulta = new ColtultaAcervoAgrupadaPorEditora();
+        DesktopPrincipal.add(telaContulta);
+        telaContulta.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        ColtultaAcervoAgrupadaPorClassificacao telaContulta = new ColtultaAcervoAgrupadaPorClassificacao();
+        DesktopPrincipal.add(telaContulta);
+        telaContulta.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        ColtultaAcervoAgrupadaPorTipo telaContulta = new ColtultaAcervoAgrupadaPorTipo();
+        DesktopPrincipal.add(telaContulta);
+        telaContulta.show();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        ColtultaGeral telaContulta = new ColtultaGeral();
+        DesktopPrincipal.add(telaContulta);
+        telaContulta.show();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        ColtultaEmprestimosEDevolucoes telaContulta = new ColtultaEmprestimosEDevolucoes();
+        DesktopPrincipal.add(telaContulta);
+        telaContulta.show();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,14 +372,21 @@ public class ViewPrincipal extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane DesktopPrincipal;
     private javax.swing.JLabel fundoViewPrincipal;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     public static javax.swing.JMenuItem jmAcervo;
-    public static javax.swing.JMenuItem jmAjuda;
     public static javax.swing.JMenuItem jmAutores;
     private javax.swing.JMenu jmCadastros;
     public static javax.swing.JMenuItem jmClassificacoes;
-    private javax.swing.JMenuItem jmDevolucoes;
+    public static javax.swing.JMenuItem jmDevolucoes;
     public static javax.swing.JMenuItem jmEditoras;
-    private javax.swing.JMenuItem jmEmprestimos;
+    public static javax.swing.JMenuItem jmEmprestimos;
     public static javax.swing.JMenuItem jmLeitores;
     private javax.swing.JMenu jmMovimentacao;
     private javax.swing.JMenu jmOpcoes;

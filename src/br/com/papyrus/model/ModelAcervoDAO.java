@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ import java.util.List;
 public class ModelAcervoDAO {
 
     public static String edVO;
+
 
     /**
      * Método responsável pelo acesso a dados, inserindo registros em Acervo,
@@ -102,9 +105,8 @@ public class ModelAcervoDAO {
             pstm.setString(19, Acervo.getISBN());
             pstm.setString(20, Acervo.getObservacoes());
             pstm.setString(21, Acervo.getDisponivel());
-            pstm.setInt(22, Acervo.getAutores_Id());            
+            pstm.setInt(22, Acervo.getAutores_Id());
             pstm.setInt(23, Acervo.getId());
-
 
             pstm.execute();
         } catch (ClassNotFoundException | SQLException ex) {

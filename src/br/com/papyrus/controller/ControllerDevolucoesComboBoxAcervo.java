@@ -2,8 +2,6 @@ package br.com.papyrus.controller;
 
 import br.com.papyrus.model.CriarConexao;
 import br.com.papyrus.view.ViewDevolucoes;
-import br.com.papyrus.view.ViewEmprestimos;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,26 +15,26 @@ import javax.swing.JOptionPane;
  *
  * @author Alexandre Luiz dos Santos
  */
-public class ControllerEmprestimosComboBoxAcervo extends javax.swing.JFrame {
+public class ControllerDevolucoesComboBoxAcervo extends javax.swing.JFrame {
 
-    public static String s = "SELECT ace.Id, ace.Titulo AS TituloAcervo FROM acervo ace WHERE ace.Disponivel='sim'";
+    public static String s = "SELECT ace.Id, ace.Titulo AS TituloAcervo FROM acervo ace WHERE ace.Disponivel='não'";
 
     /**
      * Cria um novo formulário a partir de ControllerEmprestimosComboBoxAcervo
      */
-    public ControllerEmprestimosComboBoxAcervo() {
+    public ControllerDevolucoesComboBoxAcervo() {
         initComponents();
         CarregarComboBox();
     }
 
     public void CarregarComboBox() {
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapEmprestimos = cc.CarregarComboBox(s);
-        if (mapEmprestimos.keySet().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Não existem itens disponíveis para empréstimo !");
+        HashMap<String, Integer> mapDevolucoes = cc.CarregarComboBox(s);
+        if (mapDevolucoes.keySet().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Não existem itens disponíveis para devolução !");
         }
-        mapEmprestimos.keySet().forEach((s) -> {
-            cmbEmprestimosAcervo.addItem(s);
+        mapDevolucoes.keySet().forEach((s) -> {
+            cmbDevolucoesAcervo.addItem(s);
         });
     }
 
@@ -49,7 +47,7 @@ public class ControllerEmprestimosComboBoxAcervo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cmbEmprestimosAcervo = new javax.swing.JComboBox<>();
+        cmbDevolucoesAcervo = new javax.swing.JComboBox<>();
         btnOk = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -79,7 +77,7 @@ public class ControllerEmprestimosComboBoxAcervo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbEmprestimosAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDevolucoesAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -90,7 +88,7 @@ public class ControllerEmprestimosComboBoxAcervo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(cmbEmprestimosAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbDevolucoesAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOk)
@@ -106,11 +104,11 @@ public class ControllerEmprestimosComboBoxAcervo extends javax.swing.JFrame {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         CriarConexao cc = new CriarConexao();
-        HashMap<String, Integer> mapEmprestimos = cc.CarregarComboBox(s);
-        if (!mapEmprestimos.keySet().isEmpty()) {
+        HashMap<String, Integer> mapDevolucoes = cc.CarregarComboBox(s);
+        if (!mapDevolucoes.keySet().isEmpty()) {
             try {
-                ViewEmprestimos.txtAcervo_Id.setText(mapEmprestimos.get(cmbEmprestimosAcervo.getSelectedItem().toString()).toString());
-                ViewEmprestimos.txtTituloAcervo.setText(cmbEmprestimosAcervo.getItemAt(cmbEmprestimosAcervo.getSelectedIndex()));
+                ViewDevolucoes.txtAcervo_Id.setText(mapDevolucoes.get(cmbDevolucoesAcervo.getSelectedItem().toString()).toString());
+                ViewDevolucoes.txtTituloAcervo.setText(cmbDevolucoesAcervo.getItemAt(cmbDevolucoesAcervo.getSelectedIndex()));
                 setarInformacoesSobreOAcervo();
                 this.dispose();
             } catch (Exception e) {
@@ -142,14 +140,14 @@ public class ControllerEmprestimosComboBoxAcervo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ControllerEmprestimosComboBoxAcervo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControllerDevolucoesComboBoxAcervo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ControllerEmprestimosComboBoxAcervo().setVisible(true);
+                new ControllerDevolucoesComboBoxAcervo().setVisible(true);
             }
         });
     }
@@ -157,50 +155,50 @@ public class ControllerEmprestimosComboBoxAcervo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnOk;
-    public static javax.swing.JComboBox<String> cmbEmprestimosAcervo;
+    public static javax.swing.JComboBox<String> cmbDevolucoesAcervo;
     // End of variables declaration//GEN-END:variables
 
     private void setarInformacoesSobreOAcervo() {
-        if (!ViewEmprestimos.txtAcervo_Id.getText().isEmpty()) {
+        if (!ViewDevolucoes.txtAcervo_Id.getText().isEmpty()) {
 
-            LocalDate dataEmprestimo = LocalDate.now();
             LocalDate dataDevolucao = LocalDate.now();
             DateTimeFormatter formatoBR = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
             try {
-                int numeroAcervo = Integer.parseInt(ViewEmprestimos.txtAcervo_Id.getText());
+                int numeroAcervo = Integer.parseInt(ViewDevolucoes.txtAcervo_Id.getText());
                 Connection conn = CriarConexao.abrirConexao();
                 String SQL = "SELECT tip.Id, tip.Dias AS DiasDeEmprestimo, "
                         + "ace.Id, ace.Tipos_Id, ace.SubTitulo, ace.Exemplar, "
                         + "ace.Edicao, ace.Volume, ace.Disponivel, ace.Local, "
+                        + "lei.Id AS IdLeitores, lei.Nome AS NomeLeitores, "
                         + "aut.Id AS Autores_Id, aut.Nome AS AutorNome "
                         + "FROM tipos tip "
                         + "JOIN acervo ace ON ace.Tipos_Id = tip.Id "
+                        + "JOIN emprestimos emp ON emp.Acervo_Id = ace.Id "
+                        + "JOIN leitores lei ON lei.Id = emp.Leitores_Id "
                         + "JOIN autores aut ON aut.Id = ace.Autores_Id "
                         + "WHERE ace.Id = '" + numeroAcervo + "'";
                 Statement stm = conn.createStatement();
                 ResultSet rs = stm.executeQuery(SQL);
 
                 if (rs.next()) {
-                    int dias = rs.getInt("DiasDeEmprestimo");
-                    dataDevolucao = dataEmprestimo.plusDays(dias);
-
-                    ViewEmprestimos.txtEmprestimo.setText(dataEmprestimo.format(formatoBR));
-                    ViewEmprestimos.txtDevolucao.setText(dataDevolucao.format(formatoBR));
-                    ViewEmprestimos.txtSubTituloAcervo.setText(rs.getString("SubTitulo"));
-                    ViewEmprestimos.txtExemplarAcervo.setText(rs.getString("Exemplar"));
-                    ViewEmprestimos.txtEdicaoAcervo.setText(rs.getString("Edicao"));
-                    ViewEmprestimos.txtVolumeAcervo.setText(rs.getString("Volume"));
-                    ViewEmprestimos.txtDisponivelAcervo.setText(rs.getString("Disponivel"));
-                    ViewEmprestimos.txtLocalAcervo.setText(rs.getString("Local"));
-                    ViewEmprestimos.txtAutores_Id.setText(rs.getString("Autores_Id"));
-                    ViewEmprestimos.txtAutorNome.setText(rs.getString("AutorNome"));
+                    ViewDevolucoes.txtDevolucao.setText(dataDevolucao.format(formatoBR));
+                    ViewDevolucoes.txtSubTituloAcervo.setText(rs.getString("SubTitulo"));
+                    ViewDevolucoes.txtExemplarAcervo.setText(rs.getString("Exemplar"));
+                    ViewDevolucoes.txtEdicaoAcervo.setText(rs.getString("Edicao"));
+                    ViewDevolucoes.txtVolumeAcervo.setText(rs.getString("Volume"));
+                    ViewDevolucoes.txtDisponivelAcervo.setText(rs.getString("Disponivel"));
+                    ViewDevolucoes.txtLocalAcervo.setText(rs.getString("Local"));
+                    ViewDevolucoes.txtLeitores_Id.setText(rs.getString("IdLeitores"));
+                    ViewDevolucoes.txtNomeLeitores.setText(rs.getString("NomeLeitores"));
+                    ViewDevolucoes.txtAutores_Id.setText(rs.getString("Autores_Id"));
+                    ViewDevolucoes.txtAutorNome.setText(rs.getString("AutorNome"));
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "Primeiro selecione um item do acervo");
                 }
             } catch (ClassNotFoundException | SQLException ex) {
                 ex.printStackTrace();
-                JOptionPane.showMessageDialog(null, "O leitor deverá esperar 24h para alugar o mesmo item.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Primeiro selecione um item do acervo");

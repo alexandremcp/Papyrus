@@ -142,6 +142,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Classifica&#xe7;&#xe3;o Decimal Universal"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtTombo.setDocument(new StringLimitada(6));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="870" y="190" width="105" height="-1"/>

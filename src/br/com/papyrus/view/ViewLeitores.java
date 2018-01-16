@@ -161,6 +161,8 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         lblMatricula.setToolTipText("");
         lblMatricula.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 50, 20));
+
+        txtMatricula.setDocument(new StringLimitada(10));
         getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 120, -1));
 
         lblTurma.setText("Turma");
@@ -198,6 +200,8 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         lblIdentidade.setText("Identidade");
         lblIdentidade.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblIdentidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 60, 20));
+
+        txtIdentidade.setDocument(new StringLimitada(15));
         getContentPane().add(txtIdentidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 170, -1));
 
         lblCPF.setText("CPF");
@@ -207,6 +211,8 @@ public class ViewLeitores extends javax.swing.JInternalFrame {
         lblTelefone.setText("Telefone");
         lblTelefone.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(lblTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 50, 20));
+
+        txtTelefone.setDocument(new StringLimitada(11));
         getContentPane().add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, 140, -1));
 
         lblEmail.setText("E-mail");
